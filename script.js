@@ -1,0 +1,127 @@
+// 1. NAVIGATION LOGIC (Mobile Menu)
+document.addEventListener('DOMContentLoaded', () => {
+    const menuBtn = document.getElementById('menuBtn');
+    const mainNav = document.getElementById('mainNav');
+    const navLinks = document.querySelectorAll('#mainNav a');
+
+    if (menuBtn && mainNav) {
+        menuBtn.addEventListener('click', () => {
+            mainNav.classList.toggle('active');
+        });
+
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mainNav.classList.remove('active');
+            });
+        });
+    }
+
+    // Initial Weather & Countdown call
+    getLiveWeather();
+    startCountdown();
+});
+
+// 2. WEATHER LOGIC (Nashik Live)
+async function getLiveWeather() {
+    const apiKey = "edd0aac747fe91fcaaa478fa292e5639"; 
+    const city = "Nashik";
+    const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}`;
+
+    try {
+        const response = await fetch(url);
+        if (!response.ok) throw new Error("API Not Ready");
+        const data = await response.json();
+
+        document.getElementById("temp-value").innerText = Math.round(data.main.temp);
+        document.getElementById("weather-condition").innerText = data.weather[0].description;
+        document.getElementById("humidity").innerText = `Humidity: ${data.main.humidity}%`;
+        
+        const iconCode = data.weather[0].icon;
+        document.getElementById("weather-icon").innerHTML = `<img src="https://openweathermap.org/img/wn/${iconCode}@2x.png" width="50">`;
+    } catch (error) {
+        console.log("Using Demo Weather Data...");
+        document.getElementById("temp-value").innerText = "28"; 
+        document.getElementById("weather-condition").innerText = "Clear Sky";
+        document.getElementById("weather-icon").innerHTML = "☀️";
+    }
+}
+
+// 3. CROWD STATUS LOGIC (Fixing function name mismatch)
+window.updateCrowdStatus = function(level) {
+    const card = document.getElementById('status-card');
+    const title = document.getElementById('status-title');
+    const msg = document.getElementById('status-msg');
+    const parking = document.getElementById('parking-text');
+
+    if (!card) return;
+
+    card.classList.remove('status-low', 'status-med', 'status-high');
+
+    if (level === 'low') {
+        card.classList.add('status-low');
+        title.innerText = "LOW CROWD";
+        msg.innerText = "Shahar mein yaatayaat samanya hai. Private gaadiyan allowed hain.";
+        parking.innerText = "All Parking Lots: OPEN";
+    } else if (level === 'med') {
+        card.classList.add('status-med');
+        title.innerText = "MEDIUM CROWD";
+        msg.innerText = "Bheed badh rahi hai. Kripya public transport ka upyog karein.";
+        parking.innerText = "City Parking: 80% Full";
+    } else if (level === 'high') {
+        card.classList.add('status-high');
+        title.innerText = "HIGH CROWD (ALERT)";
+        msg.innerText = "SHAHI SNAN ALERT: Sirf paidal yaatra karein.";
+        parking.innerText = "Outer Parking: FULL";
+    }
+};
+
+// 4. COUNTDOWN TIMER
+function startCountdown() {
+    const kumbhDate = new Date("August 14, 2027 00:00:00").getTime();
+    setInterval(function() {
+        const now = new Date().getTime();
+        const distance = kumbhDate - now;
+
+        if (distance < 0) return;
+
+        document.getElementById("days").innerHTML = Math.floor(distance / (1000 * 60 * 60 * 24));
+        document.getElementById("hours").innerHTML = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        document.getElementById("minutes").innerHTML = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        document.getElementById("seconds").innerHTML = Math.floor((distance % (1000 * 60)) / 1000);
+    }, 1000);
+}
+
+// 5. LANGUAGE & GOOGLE TRANSLATE
+function googleTranslateElementInit() {
+    new google.translate.TranslateElement({
+        pageLanguage: 'en',
+        includedLanguages: 'en,hi,mr,bn,te,ta,gu,kn,pa,ml',
+        autoDisplay: false
+    }, 'google_translate_element');
+}
+
+window.toggleLangCard = function() {
+    const card = document.getElementById('langCard');
+    if(card) card.classList.toggle('active');
+};
+
+window.changeLanguage = function(langCode) {
+    const googleCombo = document.querySelector('.goog-te-combo');
+    if (googleCombo) {
+        googleCombo.value = langCode;
+        googleCombo.dispatchEvent(new Event('change'));
+        toggleLangCard();
+    } else {
+        console.log("Google Translate loading...");
+    }
+};
+
+
+window.toggleLangCard = function() {
+    const card = document.getElementById('langCard');
+    if (card) {
+        card.classList.toggle('active');
+    } else {
+        console.error("langCard nahi mila!");
+    }
+};

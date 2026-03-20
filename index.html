@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nashik Kumbh Guide</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<header>
+    <div class="logo" data-key="logo">🕉 Kumbh Guide</div>
+    
+    <div id="google_translate_element"></div>
+
+
+    <button class="mobile-menu-btn" id="menuBtn">
+        <i class="fas fa-bars"></i>
+    </button>
+
+    <nav id="mainNav">
+        <a href="#home" data-key="nav_home">Home</a>
+        <a href="#services" data-key="nav_services">Services</a>
+        <a href="#dates" data-key="nav_dates">Dates</a>
+        <a href="#ghats" data-key="nav_ghats">Ghats</a>
+        <a href="#hotels" data-key="nav_hotels">Hotels</a>
+        <a href="#gallery" data-key="nav_gallery">Gallery</a>
+        <a href="#food" data-key="nav_food">Food</a>
+        <a href="#emergency" data-key="nav_emergency" class="emergency">Emergency</a>
+    </nav>
+
+    <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+</header>
+
+<section class="live-widgets">
+    <div class="container">
+        <div class="widgets-grid">
+            
+            <div class="widget-card countdown">
+                <h4 data-key="timer_title">⏳ Kumbh Mela 2027 Countdown</h4>
+                <div id="timer">
+                    <div class="time-box"><span id="days">00</span><p data-key="unit_days">Days</p></div>
+                    <div class="time-box"><span id="hours">00</span><p data-key="unit_hours">Hours</p></div>
+                    <div class="time-box"><span id="minutes">00</span><p data-key="unit_mins">Mins</p></div>
+                    <div class="time-box"><span id="seconds">00</span><p data-key="unit_secs">Secs</p></div>
+                </div>
+            </div>
+
+            <div class="widget-card weather">
+                <h4 data-key="weather_title">Nashik Weather</h4>
+                <div class="weather-info">
+                    <div id="weather-icon">☀️</div>
+                        <div class="temp"><span id="temp-value">--</span>°C</div>
+                        </div>
+                        <div class="weather-desc">
+                        <p id="weather-condition">Loading...</p>
+                        <p id="humidity">Humidity: --%</p>
+                    </div>
+                    <p class="weather-note" data-key="weather_update">Live Updates from Nashik</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="home" class="hero">
+    <div class="overlay"></div>
+
+    <div class="hero-content">
+        <h1 data-key="hero_title_guide">Nashik Kumbh Guide</h1>
+        <p data-key="hero_subtitle">Find Ghats • Hotels • Food • Important Dates</p>
+
+        <div class="hero-buttons">
+            <a class="btn1" href="#ghats" data-key="btn_explore">Explore Ghats</a>
+            <a class="btn2" href="#hotels" data-key="btn_hotels">Find Hotels</a>
+        </div>
+    </div>
+</section>
+
+<section id="about" class="about-section">
+    <div class="container">
+        <div class="about-flex">
+            <div class="about-image">
+                <img src="https://media.gettyimages.com/id/488042216/photo/nashik-india-huge-gathering-of-hindu-devotees-as-they-take-bath-on-auspicious-day-during-the.jpg?s=612x612&w=0&k=20&c=xAFd2PDHOs-ZEidjveoWIsBCviN44lZMulWuK0rQ6NY=" alt="Spiritual Nashik">
+                <div class="experience-badge">
+                    <span data-key="about_12years">12 Years</span>
+                    <p data-key="about_wait">Wait is Ending</p>
+                </div>
+            </div>
+
+            <div class="about-content">
+                <span class="sub-title" data-key="about_subtitle">Hamari Virasat</span>
+                <h2 data-key="about_h2">Nashik Kumbh: Jahan Dharti aur Swarg Milte Hain!</h2>
+                <p class="main-para" data-key="about_para">
+                    Har 12 saal mein ek baar, Nashik ki hawa mein ek alag hi shakti hoti hai. Godavari ka tat, mantron ki goonj aur lakho shraddhaluon ka vishwas... isi ka naam hai Kumbh Mela.
+                </p>
+                
+                <div class="about-features">
+                    <div class="feat-box">
+                        <span class="feat-icon">🕉️</span>
+                        <div>
+                            <h4 data-key="feat1_title">Pavitra Snan</h4>
+                            <p data-key="feat1_desc">Ramkund mein ek dubki jo man aur atma ko shuddh kar deti hai.</p>
+                        </div>
+                    </div>
+                    <div class="feat-box">
+                        <span class="feat-icon">🚩</span>
+                        <div>
+                            <h4 data-key="feat2_title">Sadhun ka Sangam</h4>
+                            <p data-key="feat2_desc">Aghori, Naga aur tapasvi sadhuon ke darshan jo sirf yahin mumkin hain.</p>
+                        </div>
+                    </div>
+                    <div class="feat-box">
+                        <span class="feat-icon">✨</span>
+                        <div>
+                            <h4 data-key="feat3_title">Amrit ki Boondein</h4>
+                            <p data-key="feat3_desc">Maana jata hai ki samudramanthan ke waqt amrit ki boondein yahan giri thin.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <blockquote class="spiritual-quote" data-key="about_quote">
+                    "Nashik sirf ek shahar nahi, Prabhu Shri Ram ki tapobhoomi hai."
+                </blockquote>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="services" class="services">
+    <div class="container">
+        <span class="sub-title" data-key="serv_subtitle">Explore</span>
+        <h2 data-key="serv_h2">Kumbh Information Center</h2>
+        <p class="section-desc" data-key="serv_desc">Everything you need to know about the Nashik-Trimbakeshwar Simhastha Kumbh Mela.</p>
+
+        <div class="service-grid">
+            <div class="info-card">
+                <div class="icon-box">🌊</div>
+                <h3 data-key="serv_ghats_title">Holy Ghats</h3>
+                <p data-key="serv_ghats_desc">Discover the spiritual significance of Ramkund and Kushavarta Kund.</p>
+                <a href="#ghats" class="read-more" data-key="serv_ghats_btn">View All Ghats →</a>
+            </div>
+
+            <div class="info-card">
+                <div class="icon-box">🏨</div>
+                <h3 data-key="serv_stay_title">Stay & Lodging</h3>
+                <p data-key="serv_stay_desc">From luxury hotels to budget dharamshalas and tent cities.</p>
+                <a href="#hotels" class="read-more" data-key="serv_stay_btn">Check Availability →</a>
+            </div>
+
+            <div class="info-card">
+                <div class="icon-box">🍲</div>
+                <h3 data-key="serv_food_title">Annakshetra</h3>
+                <p data-key="serv_food_desc">Find free food centers (Bhandara) and pure veg restaurants.</p>
+                <a href="#" class="read-more" data-key="serv_food_btn">Food Guide →</a>
+            </div>
+
+            <div class="info-card">
+                <div class="icon-box">📅</div>
+                <h3 data-key="serv_dates_title">Important Dates</h3>
+                <p data-key="serv_dates_desc">Never miss a Shahi Snan. Check the official 2027 calendar.</p>
+                <a href="#dates" class="read-more" data-key="serv_dates_btn">See Calendar →</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="dates" class="dates">
+    <div class="container">
+        <span class="sub-title" data-key="calendar_subtitle">Simhastha Calendar</span>
+        <h2 data-key="calendar_title">Full Bathing Schedule (2027 - 2028)</h2>
+        <p class="section-desc" data-key="calendar_desc">Nashik Kumbh ek saal tak chalta hai. Niche di gayi dates par snan ka vishesh mahatva hai.</p>
+
+        <div class="shahi-container">
+            <h3 data-key="shahi_main_title">✨ Main Shahi Snan (Royal Baths)</h3>
+            <div class="shahi-grid">
+                <div class="shahi-card">
+                    <div class="s-date">14 AUG 2027</div>
+                    <h4 data-key="shahi_1_name">Pratham Shahi Snan</h4>
+                    <p data-key="shahi_1_desc">First Royal Bath - Shravan Shukla Ekadashi</p>
+                </div>
+                <div class="shahi-card featured">
+                    <div class="s-badge" data-key="shahi_imp_badge">Most Important</div>
+                    <div class="s-date">31 AUG 2027</div>
+                    <h4 data-key="shahi_2_name">Dwitiya Shahi Snan</h4>
+                    <p data-key="shahi_2_desc">Main Day - Shravan Amavasya (Highest Crowd)</p>
+                </div>
+                <div class="shahi-card">
+                    <div class="s-date">12 SEP 2027</div>
+                    <h4 data-key="shahi_3_name">Tritiya Shahi Snan</h4>
+                    <p data-key="shahi_3_desc">Final Royal Bath - Bhadrapad Shukla Ekadashi</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="full-timeline">
+            <h3 data-key="timeline_title">📅 Complete Event Timeline</h3>
+            
+            <div class="t-row">
+                <div class="t-date">14 July 2027</div>
+                <div class="t-info"><strong data-key="event_1_name">Dhwajarohan:</strong> <span data-key="event_1_desc">Mela ka official aagaz (Nashik & Trimbakeshwar).</span></div>
+            </div>
+
+            <div class="t-row">
+                <div class="t-date">23 Aug 2027</div>
+                <div class="t-info"><strong data-key="event_2_name">Putrada Ekadashi:</strong> <span data-key="event_2_desc">Pavitra snan ka din.</span></div>
+            </div>
+
+            <div class="t-row">
+                <div class="t-date">29 Aug 2027</div>
+                <div class="t-info"><strong data-key="event_3_name">Somvati Amavasya:</strong> <span data-key="event_3_desc">Spiritual drishti se behad mahatvapurna din.</span></div>
+            </div>
+
+            <div class="t-row">
+                <div class="t-date">04 Sept 2027</div>
+                <div class="t-info"><strong data-key="event_4_name">Ganesh Chaturthi:</strong> <span data-key="event_4_desc">Vishesh snan utsav.</span></div>
+            </div>
+
+            <div class="t-row">
+                <div class="t-date">12 Oct 2027</div>
+                <div class="t-info"><strong data-key="event_5_name">Vijayadashami:</strong> <span data-key="event_5_desc">Dussehra snan rituals.</span></div>
+            </div>
+
+            <div class="t-row">
+                <div class="t-date">14 Jan 2028</div>
+                <div class="t-info"><strong data-key="event_6_name">Makar Sankranti:</strong> <span data-key="event_6_desc">Surya ka rashi parivartan snan.</span></div>
+            </div>
+
+            <div class="t-row">
+                <div class="t-date">08 Mar 2028</div>
+                <div class="t-info"><strong data-key="event_7_name">Mahashivratri:</strong> <span data-key="event_7_desc">Trimbakeshwar mein bhavya utsav.</span></div>
+            </div>
+
+            <div class="t-row">
+                <div class="t-date">05 Apr 2028</div>
+                <div class="t-info"><strong data-key="event_8_name">Ram Navami:</strong> <span data-key="event_8_desc">Lord Rama ki janmabhoomi (Panchvati) mein snan.</span></div>
+            </div>
+
+            <div class="t-row end-date">
+                <div class="t-date">11 Aug 2028</div>
+                <div class="t-info"><strong data-key="event_9_name">Dhwaja-avataran:</strong> <span data-key="event_9_desc">Simhastha Kumbh Mela ka samapan.</span></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="ghats" class="ghats">
+    <div class="container">
+        <span class="sub-title" data-key="ghats_subtitle">Holy Locations</span>
+        <h2 data-key="ghats_title">Sacred Bathing Ghats</h2>
+        <p class="section-desc" data-key="ghats_desc">Kumbh Mela ke mukhya ghat jahan aap pavitra snan kar sakte hain. Direction ke liye "Navigate" button par click karein.</p>
+
+        <h3 class="location-heading" data-key="ghats_nashik_head">📍 Nashik City Ghats</h3>
+        <div class="ghat-grid">
+            <div class="ghat-card">
+                <div class="ghat-img">
+                    <img src="https://media.gettyimages.com/id/521764062/photo/ramkund-godavari-river-nashik-maharashtra-india-asia.jpg?s=612x612&w=0&k=20&c=cFClOf-sDmYWxEo3pJ_Sqp5mXehNLSS6grUMJNY7hVY=" alt="Ramkund">
+                    <span class="crowd-tag" data-key="tag_high">High Priority</span>
+                </div>
+                <div class="ghat-info">
+                    <h3 data-key="ramkund_title">Ramkund Ghat</h3>
+                    <p data-key="ramkund_desc">Prabhu Shri Ram ki pavitra smriti. Kumbh ka main snan yahi hota hai.</p>
+                    <div class="ghat-features">
+                        <span data-key="feat_changing">🚿 Changing Rooms</span>
+                        <span data-key="feat_medical">🚑 Medical Camp</span>
+                    </div>
+                    <a href="#" target="_blank" class="nav-btn" data-key="btn_nav">📍 Navigate to Ghat</a>
+                </div>
+            </div>
+
+            <div class="ghat-card">
+                <div class="ghat-img">
+                    <img src="https://media.gettyimages.com/id/85867356/photo/hindu-devotees-at-bathing-ghats-on-the-godavari-river-during-the-khumb-mela.jpg?s=612x612&w=0&k=20&c=kXPFJmGKa4CSxXba3ixitrO15Bz84LAt150qDU2EUgE=" alt="Tapovan">
+                </div>
+                <div class="ghat-info">
+                    <h3 data-key="tapovan_title">Tapovan / Laxman Kund</h3>
+                    <p data-key="tapovan_desc">Shant vatavaran aur rishi-muniyo ki tapobhoomi. Laxman ji se juda pavitra kund.</p>
+                    <div class="ghat-features">
+                        <span data-key="feat_peace">🌳 Peaceful</span>
+                        <span data-key="feat_temple">🛕 Nearby Temples</span>
+                    </div>
+                    <a href="#" target="_blank" class="nav-btn" data-key="btn_nav">📍 Navigate to Ghat</a>
+                </div>
+            </div>
+        </div>
+
+        <h3 class="location-heading" data-key="ghats_trim_head">📍 Trimbakeshwar (30 KM from Nashik)</h3>
+        <div class="ghat-grid">
+            <div class="ghat-card">
+                <div class="ghat-img">
+                    <img src="https://media.gettyimages.com/id/1226556190/photo/hindu-devotees-take-a-holy-bath-at-the-kushavarta-kund-trimbakeshwar-india.jpg?s=612x612&w=0&k=20&c=QpKemurDKtnkgllEM2HSb4ssH8IwYa2TU9V6kxbwumc=" alt="Kushavarta">
+                    <span class="crowd-tag" data-key="tag_naga">Naga Sadhu Main</span>
+                </div>
+                <div class="ghat-info">
+                    <h3 data-key="kush_title">Kushavarta Kund</h3>
+                    <p data-key="kush_desc">Godavari ka udgam sthal. Naga Sadhuo ke shahi snan ki mukhya jagah.</p>
+                    <div class="ghat-features">
+                        <span data-key="feat_jyotir">🕉️ Jyotirlinga Near</span>
+                        <span data-key="feat_akhada">🚩 Akhada Point</span>
+                    </div>
+                    <a href="#" target="_blank" class="nav-btn" data-key="btn_nav">📍 Navigate to Ghat</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="hotels" class="hotels">
+    <div class="container">
+        <span class="sub-title" data-key="hotel_subtitle">Stay Guide</span>
+        <h2 data-key="hotel_title">Find Your Perfect Stay (Full List)</h2>
+
+        <h3 class="stay-heading" data-key="cat_premium">✨ Premium & Full Services</h3>
+        <div class="stay-grid">
+            <div class="stay-card high-value">
+                <div class="stay-info">
+                    <h4>M B M Trust</h4>
+                    <p class="location" data-key="loc_nmc">📍 Near New NMC office</p>
+                    <p class="desc" data-key="desc_mbm">AC rooms, serene greenery, and very spacious. High comfort for families.</p>
+                    <div class="rating">⭐ 4.6/5</div>
+                    <a href="tel:09673442437" class="book-btn" data-key="btn_call">📞 Call Now</a>
+                </div>
+            </div>
+
+            <div class="stay-card high-value">
+                <div class="stay-info">
+                    <h4>Hotel Panchavati Yatri</h4>
+                    <p class="location" data-key="loc_central">📍 Central Nashik</p>
+                    <p class="desc" data-key="desc_panchvati">Professional 2-star hotel with bar, 2 eateries, and AC rooms.</p>
+                    <div class="rating">⭐ 4.0/5</div>
+                    <a href="tel:07028077900" class="book-btn" data-key="btn_call">📞 Call Now</a>
+                </div>
+            </div>
+
+            <div class="stay-card high-value">
+                <div class="stay-info">
+                    <h4>Maheshwari Bhavan</h4>
+                    <p class="location" data-key="loc_raviwar">📍 Raviwar Peth Rd</p>
+                    <p class="desc" data-key="desc_maheshwari">Clean AC rooms and excellent community service for groups.</p>
+                    <div class="rating">⭐ 4.0/5</div>
+                    <a href="#" target="_blank" class="book-btn" data-key="btn_dir">📍 Directions</a>
+                </div>
+            </div>
+        </div>
+
+        <h3 class="stay-heading" data-key="cat_standard">🏠 Standard & Family Stays</h3>
+        <div class="stay-grid">
+            <div class="stay-card middle">
+                <div class="stay-info">
+                    <h4>Singhania Guest House</h4>
+                    <p class="location" data-key="loc_market">📍 Main Market Area</p>
+                    <p class="desc" data-key="desc_singhania">Rooms at approx ₹500. Features elevator, water cooler, and Wi-Fi.</p>
+                    <div class="rating">⭐ 3.5/5</div>
+                    <a href="tel:02532513299" class="book-btn" data-key="btn_call">📞 Call Now</a>
+                </div>
+            </div>
+
+            <div class="stay-card middle">
+                <div class="stay-info">
+                    <h4>Shree Balaji Guest House</h4>
+                    <p class="location" data-key="loc_ramkund">📍 Near Ramkund</p>
+                    <p class="desc" data-key="desc_balaji">Clean washrooms, free parking, and very supportive staff.</p>
+                    <div class="rating">⭐ 4.1/5</div>
+                    <a href="tel:09922780849" class="book-btn" data-key="btn_call">📞 Call Now</a>
+                </div>
+            </div>
+
+            <div class="stay-card middle">
+                <div class="stay-info">
+                    <h4>Hotel Rahi Nashik</h4>
+                    <p class="location" data-key="loc_citycenter">📍 City Center</p>
+                    <p class="desc" data-key="desc_rahi">2-star hotel with fast service and clean vegetarian dining.</p>
+                    <div class="rating">⭐ 3.4/5</div>
+                    <a href="tel:09890979259" class="book-btn" data-key="btn_call">📞 Call Now</a>
+                </div>
+            </div>
+
+            <div class="stay-card middle">
+                <div class="stay-info">
+                    <h4>Parmanand Bhuvan</h4>
+                    <p class="location" data-key="loc_sitagufa">📍 Sita Gufa Road</p>
+                    <p class="desc" data-key="desc_parmanand">Excellent garden, tasty food, and very close to major temples.</p>
+                    <div class="rating">⭐ 4.9/5</div>
+                    <a href="tel:02532513548" class="book-btn" data-key="btn_call">📞 Call Now</a>
+                </div>
+            </div>
+        </div>
+
+        <h3 class="stay-heading" data-key="cat_spiritual">🚩 Spiritual & Community Stays</h3>
+        <div class="stay-grid">
+            <div class="stay-card dharamshala">
+                <div class="stay-info">
+                    <h4>Dada Jethanand Pagrani Trust</h4>
+                    <p class="location" data-key="loc_jaju">📍 Jaju Wadi</p>
+                    <p class="desc" data-key="desc_dada">Very cheap stay with high hygiene and delicious satvik food.</p>
+                    <div class="rating">⭐ 4.6/5</div>
+                    <a href="tel:09423311434" class="book-btn" data-key="btn_call">📞 Call Now</a>
+                </div>
+            </div>
+
+            <div class="stay-card dharamshala">
+                <div class="stay-info">
+                    <h4>Jain Dharamshala</h4>
+                    <p class="location" data-key="loc_highway">📍 Agra-Mumbai Highway</p>
+                    <p class="desc" data-key="desc_jain">Clean rooms and high-quality Jain Canteen food available.</p>
+                    <div class="rating">⭐ 4.3/5</div>
+                    <a href="#" target="_blank" class="book-btn" data-key="btn_dir">📍 Directions</a>
+                </div>
+            </div>
+
+            <div class="stay-card dharamshala">
+                <div class="stay-info">
+                    <h4>Sant Gadge Maharaj Trust</h4>
+                    <p class="location" data-key="loc_amardham">📍 Amardham Rd</p>
+                    <p class="desc" data-key="desc_gadge">Nice rooms at a very affordable price right by the river.</p>
+                    <div class="rating">⭐ 4.3/5</div>
+                    <a href="tel:02532599174" class="book-btn" data-key="btn_call">📞 Call Now</a>
+                </div>
+            </div>
+
+            <div class="stay-card dharamshala">
+                <div class="stay-info">
+                    <h4>Leuva Patidar Samaj</h4>
+                    <p class="location" data-key="loc_kapaleshwar">📍 Near Kapaleahqar Temple</p>
+                    <p class="desc" data-key="desc_leuva">Moderate prices with clean rooms, right at Ganga Ghat.</p>
+                    <div class="rating">⭐ 4.0/5</div>
+                    <a href="tel:02532516375" class="book-btn" data-key="btn_call">📞 Call Now</a>
+                </div>
+            </div>
+            
+            <div class="stay-card dharamshala">
+                <div class="stay-info">
+                    <h4>Godhriwala Dharamshala</h4>
+                    <p class="location" data-key="loc_indrakund">📍 Behind Indra Kund</p>
+                    <p class="desc" data-key="desc_godhriwala">Safe and nearest place to Ramkund and Panchavati.</p>
+                    <div class="rating">⭐ 5.0/5</div>
+                    <a href="#" target="_blank" class="book-btn" data-key="btn_dir">📍 Directions</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="food" class="food">
+    <div class="container">
+        <span class="sub-title" data-key="food_subtitle">Nutrition & Blessings</span>
+        <h2 data-key="food_title">Food & Annakshetra</h2>
+        <p class="section-desc" data-key="food_desc">Kumbh Mela mein shuddh aur satvik bhojan ki vyavastha har jagah milti hai.</p>
+
+        <div class="food-grid">
+            <div class="food-card free-food">
+                <div class="food-icon">🍴</div>
+                <h3 data-key="free_food_h3">Free Annakshetra (Bhandara)</h3>
+                <p data-key="free_food_p">Kumbh ke dauran sabhi bade Akhade (जैसे Juna, Niranjani) aur Ashrams mein muft bhojan milta hai.</p>
+                <ul class="food-tips">
+                    <li data-key="tip_open">✅ Sabhi ke liye khula hai</li>
+                    <li data-key="tip_satvik">✅ Shuddh aur Satvik Bhojan</li>
+                    <li data-key="tip_avail">✅ Har 1-2 km par uplabdh</li>
+                </ul>
+                <span class="tag" data-key="tag_punya">Punya Bhojan</span>
+            </div>
+
+            <div class="food-card prasad">
+                <div class="food-icon">🙏</div>
+                <h3 data-key="prasad_h3">Famous Prasadalaya</h3>
+                <p data-key="prasad_p">Nashik ke kuch mukhya mandir jahan saal bhar bahut hi kam dam ya muft mein prasad milta hai.</p>
+                <ul class="food-tips">
+                    <li>📍 Gajanan Maharaj Sansthan</li>
+                    <li>📍 Bhaktidham (Peth Road)</li>
+                    <li>📍 Jain Mandir Bhojanshala</li>
+                </ul>
+                <a href="#ghats" class="map-link" data-key="btn_view_loc">View Locations</a>
+            </div>
+
+            <div class="food-card local">
+                <div class="food-icon">🥘</div>
+                <h3 data-key="local_food_h3">Nashik Special (Paid)</h3>
+                <p data-key="local_food_p">Agar aap local swad chakhna chahte hain, toh Nashik ke ye saste aur famous options try karein.</p>
+                <ul class="food-tips">
+                    <li data-key="food_item_1">🌶️ Misal Pav (Nashik ki Shaan)</li>
+                    <li data-key="food_item_2">🥛 Vada Pav & Tea</li>
+                    <li data-key="food_item_3">🍲 Thali Systems (Budget Friendly)</li>
+                </ul>
+                <span class="tag" data-key="tag_taste">Local Taste</span>
+            </div>
+        </div>
+
+        <div class="food-notice">
+            <p><strong data-key="notice_title">Zaroori Sujhv:</strong> <span data-key="notice_text">Kumbh mein hamesha "Filtered" paani piyein aur bheed wali jagah par safai ka dhyan rakhein.</span></p>
+        </div>
+    </div>
+</section>
+
+<section id="guidelines" class="guidelines">
+    <div class="container">
+        <span class="sub-title" data-key="guide_subtitle">Safety First</span>
+        <h2 data-key="guide_title">Important Guidelines</h2>
+        <p class="section-desc" data-key="guide_desc">Kumbh Mela mein apni aur dusron ki suraksha ke liye in niyamo ka palan karein.</p>
+
+        <div class="rules-wrapper">
+            <div class="rules-box dos">
+                <h3 data-key="dos_title">✅ Kya Karein (Do's)</h3>
+                <ul>
+                    <li data-key="do_1">Ghat par snan ke baad turant jagah khali karein taaki dusre log snan kar sakein.</li>
+                    <li data-key="do_2">Hamesha kachra dustbin mein hi daalein, Godavari nadi ko saaf rakhein.</li>
+                    <li data-key="do_3">Apne saath hamesha ek ID Card aur emergency contact number rakhein.</li>
+                    <li data-key="do_4">Police aur volunteers ke nirdesho ka sakhti se palan karein.</li>
+                    <li data-key="do_5">Bheed mein apne bacchon aur buzurgon ka hath pakad kar rakhein.</li>
+                </ul>
+            </div>
+
+            <div class="rules-box donts">
+                <h3 data-key="donts_title">❌ Kya Na Karein (Don'ts)</h3>
+                <ul>
+                    <li data-key="dont_1">Nadi mein sabun (soap) ya shampoo ka istemal bilkul na karein.</li>
+                    <li data-key="dont_2">Deep water (gehre paani) mein na jayein, hamesha barricades ke andar rahein.</li>
+                    <li data-key="dont_3">Anjan vyaktiyo se khane-peene ki cheezein na lein.</li>
+                    <li data-key="dont_4">Nadi mein plastic, kapde ya koi bhi poojan samagri na fekein.</li>
+                    <li data-key="dont_5">Afwahon (rumors) par dhyan na dein aur bheed mein bhagdadi (stampede) na machayein.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="emergency-strip">
+            <p><strong data-key="emergency_label">Emergency Helpline:</strong> Dial 112 <span data-key="police">(Police)</span> | 108 <span data-key="ambulance">(Ambulance)</span> | <span class="blink" data-key="kumbh_help">Kumbh Helpline: Coming Soon</span></p>
+        </div>
+    </div>
+</section>
+
+<section id="transport" class="transport-section">
+    <div class="container">
+        <span class="sub-title" data-key="trans_subtitle">Live Updates</span>
+        <h2 data-key="trans_title">City Movement & Crowd Status</h2>
+
+        <div id="status-card" class="status-card status-low">
+            <div class="status-header">
+                <div class="status-indicator">
+                    <span id="status-dot" class="dot"></span>
+                    <h3 id="status-title" data-key="status_low_title">LOW CROWD</h3>
+                </div>
+                <div class="live-label" data-key="live_label">LIVE</div>
+            </div>
+            
+            <div class="status-body">
+                <p id="status-msg" data-key="status_low_msg">Shahar mein yaatayaat samanya hai. Aap apni private gaadi se mukhya ghats tak ja sakte hain.</p>
+            </div>
+
+            <div class="status-footer">
+                <div class="parking-badge">
+                    <span class="icon">🅿️</span>
+                    <span id="parking-text" data-key="parking_open">All Parking Lots: OPEN</span>
+                </div>
+            </div>
+
+            <div class="status-controls">
+                <button onclick="updateCrowdStatus('low')" class="btn-s btn-green" data-key="btn_low">Set Low</button>
+                <button onclick="updateCrowdStatus('med')" class="btn-s btn-orange" data-key="btn_med">Set Med</button>
+                <button onclick="updateCrowdStatus('high')" class="btn-s btn-red" data-key="btn_high">Set High</button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="emergency" class="emergency-section">
+    <div class="container">
+        <span class="sub-title" data-key="emer_subtitle">24/7 Support</span>
+        <h2 data-key="emer_title">Emergency Contacts</h2>
+        <p class="section-desc" data-key="emer_desc">Kisi bhi aapatkalin sthiti mein in numbers par turant sampark karein.</p>
+
+        <div class="emergency-grid">
+            <div class="e-card urgent">
+                <div class="e-icon">🆘</div>
+                <h4 data-key="helpline_title">Emergency Helpline</h4>
+                <p data-key="helpline_p">Police / Ambulance / Fire</p>
+                <a href="tel:112" class="call-btn" data-key="btn_dial_112">Dial 112</a>
+            </div>
+
+            <div class="e-card special">
+                <div class="e-icon">🕉️</div>
+                <h4 data-key="control_title">Kumbh Control Room</h4>
+                <p id="kumbh-helpline-text" data-key="control_p">Official Helpline (Coming Soon)</p>
+                <a href="tel:02531234567" class="call-btn" data-key="btn_control">Call Control Room</a>
+            </div>
+
+            <div class="e-card lost-found">
+                <div class="e-icon">📢</div>
+                <h4 data-key="lost_title">Lost & Found</h4>
+                <p data-key="lost_p">Khoya-Paya Kendra (Panchavati)</p>
+                <a href="tel:100" class="call-btn" data-key="btn_report">Report Issue</a>
+            </div>
+
+            <div class="e-card medical">
+                <div class="e-icon">🏥</div>
+                <h4 data-key="medical_title">Medical Help</h4>
+                <p data-key="medical_p">Civil Hospital Nashik</p>
+                <a href="tel:108" class="call-btn" data-key="btn_dial_108">Dial 108</a>
+            </div>
+        </div>
+
+        <div class="help-note">
+            <p><strong data-key="note_label">Note:</strong> <span data-key="note_text">Har 500 meter par "Police Sahayata Kendra" aur "Medical Camps" lagaye gaye hain.</span></p>
+        </div>
+    </div>
+</section>  
+
+<section id="gallery" class="gallery-section">
+    <div class="container">
+        <span class="sub-title" data-key="gal_subtitle">Visual Journey</span>
+        <h2 data-key="gal_title">Explore Kumbh Moments</h2>
+        <p class="section-desc" data-key="gal_desc">Nashik Kumbh Mela aur pavitra ghaton ki kuch jhalakiyaan.</p>
+
+        <div class="gallery-grid">
+            <div class="gallery-item">
+                <img src="https://media.gettyimages.com/id/521764062/photo/ramkund-godavari-river-nashik-maharashtra-india-asia.jpg?s=612x612&w=0&k=20&c=cFClOf-sDmYWxEo3pJ_Sqp5mXehNLSS6grUMJNY7hVY=" alt="Ramkund Nashik">
+                <div class="gallery-overlay">
+                    <span data-key="cap_ramkund">Pavitra Ramkund</span>
+                </div>
+            </div>
+
+            <div class="gallery-item">
+                <img src="https://media.gettyimages.com/id/488046916/photo/nashik-india-indian-hindu-devotees-take-holy-bath-at-ramkund-in-the-river-of-godavari-during.jpg?s=612x612&w=0&k=20&c=5kGXZAk4uMvFpU9i0PBQh82vIMSF5ZyAydqyydyou7w=" alt="Evening Aarti">
+                <div class="gallery-overlay">
+                    <span data-key="cap_aarti">Evening Godavari Aarti</span>
+                </div>
+            </div>
+
+            <div class="gallery-item">
+                <img src="https://media.gettyimages.com/id/525243218/photo/scores-of-holy-man-sadhus-and-pilgrims-come-from-distant-places-to-perform-religious-rituals.jpg?s=612x612&w=0&k=20&c=vJmlIA9Dny5fgaNX1MeIbfq8H9eQvjp92ykCqvZuhHM=" alt="Shahi Snan">
+                <div class="gallery-overlay">
+                    <span data-key="cap_shahi">Shahi Snan Moments</span>
+                </div>
+            </div>
+
+            <div class="gallery-item">
+                <img src="https://media.gettyimages.com/id/151266542/photo/trimbakeshwar-temple.jpg?s=612x612&w=0&k=20&c=wKj4LyZPMKzevBBZctrsIZEcR1slSw6tTiDxnBDFDLk=" alt="Trimbakeshwar Temple">
+                <div class="gallery-overlay">
+                    <span data-key="cap_trim">Trimbakeshwar Temple</span>
+                </div>
+            </div>
+
+            <div class="gallery-item">
+                <img src="https://media.gettyimages.com/id/138524278/photo/naga-sadhu-offering-his-sacred-blessing.jpg?s=612x612&w=0&k=20&c=CeQW5d5j-ys8LiJaNn-MSVc9vTbImEy7pN0QJkFbk8c=" alt="Sadhu">
+                <div class="gallery-overlay">
+                    <span data-key="cap_sadhu">Naga Sadhus Blessing</span>
+                </div>
+            </div>
+
+            <div class="gallery-item">
+                <img src="https://t3.ftcdn.net/jpg/04/67/21/48/240_F_467214882_xAk1FaQW34lycK7HNjhqHacNJ1V9PDXg.jpg" alt="Panchavati">
+                <div class="gallery-overlay">
+                    <span data-key="cap_panchavati">Panchavati Forest Area</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer class="footer">
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h3 class="footer-logo">Nashik<span data-key="foot_year">Kumbh 2027</span></h3>
+                <p data-key="foot_about">Kumbh Mela 2027 ki sabse sateek aur live jaankari ke liye hamare saath jude rahein. Chalo Kumbh Chalein!</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-col">
+                <h4 data-key="links_title">Quick Links</h4>
+                <ul>
+                    <li><a href="#home" data-key="nav_home">Home</a></li>
+                    <li><a href="#hotels" data-key="nav_hotels">Where to Stay</a></li>
+                    <li><a href="#food" data-key="nav_food">Free Food Locations</a></li>
+                    <li><a href="#transport" data-key="nav_traffic">Live Traffic Status</a></li>
+                    <li><a href="#emergency" data-key="nav_emergency">Emergency Numbers</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4 data-key="contact_title">Contact Support</h4>
+                <div class="contact-item">
+                    <span>📍</span>
+                    <p data-key="contact_addr">Nashik Municipal Corporation, Rajiv Gandhi Bhavan, Nashik.</p>
+                </div>
+                <div class="contact-item">
+                    <span>📧</span>
+                    <p>info@nashikkumbh2027.com</p>
+                </div>
+                <div class="contact-item">
+                    <span>📞</span>
+                    <p>+91 0253 1234567</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p data-key="foot_copy">&copy; 2027 Nashik Kumbh Guide | Design & Managed by YourTeam</p>
+        </div>
+    </div>
+</footer>
+<div class="language-wrapper">
+        <div class="lang-card" id="langCard">
+            <div class="lang-header">
+                <i class="fas fa-language"></i>
+                <span>Select Language</span>
+            </div>
+            <div class="lang-grid">
+                <button type="button" onclick="changeLanguage('en')">English</button>
+                <button type="button" onclick="changeLanguage('hi')">हिन्दी</button>
+                <button type="button" onclick="changeLanguage('mr')">मराठी</button>
+                <button type="button" onclick="changeLanguage('bn')">বাংলা</button>
+                <button type="button" onclick="changeLanguage('te')">తెలుగు</button>
+                <button type="button" onclick="changeLanguage('ta')">தமிழ்</button>
+                <button type="button" onclick="changeLanguage('gu')">ગુજરાતી</button>
+                <button type="button" onclick="changeLanguage('kn')">ಕನ್ನಡ</button>
+                <button type="button" onclick="changeLanguage('pa')">ਪੰਜਾਬੀ</button>
+                <button type="button" onclick="changeLanguage('ml')">മലയാളം</button>
+            </div>
+        </div>
+        <button class="fab-lang" onclick="toggleLangCard()">
+            <i class="fas fa-globe-asia"></i>
+        </button>
+    </div>
+
+<script src="script.js"></script>
+</body>
+<!-- load behavior safely after DOM is ready -->
+<script src="script.js"></script>
+
+</body>
+</html>
