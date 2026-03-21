@@ -1977,3 +1977,315 @@ header {
         height: 65px !important; 
     }
 }
+
+/*share location*/
+
+.location-share-wrapper {
+    position: fixed;
+    bottom: 20px;
+    left: 20px; /* Left corner mein safe position */
+    z-index: 999;
+}
+
+.fab-location {
+    background: #25d366; /* WhatsApp Green color */
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.fab-location:hover {
+    transform: scale(1.05);
+    background: #128c7e;
+}
+
+/* Mobile Responsive Fix */
+@media (max-width: 768px) {
+    .fab-location {
+        padding: 15px;
+        border-radius: 50%; /* Mobile par gol button */
+    }
+    .loc-text {
+        display: none; /* Mobile par sirf Icon dikhega taki space bache */
+    }
+    .location-share-wrapper {
+        bottom: 15px;
+        left: 15px;
+    }
+}
+
+/*checklist code*/
+.checklist-section {
+    padding: 60px 0;
+    background-color: #fdf2e9; /* Light Saffron background */
+}
+
+.check-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Desktop par 3 columns */
+    gap: 25px;
+    margin-top: 40px;
+}
+
+.check-item {
+    background: #fff;
+    padding: 30px;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease;
+    border-bottom: 4px solid #ff6b00;
+}
+
+.check-item:hover {
+    transform: translateY(-10px);
+}
+
+.check-icon {
+    font-size: 40px;
+    margin-bottom: 15px;
+}
+
+.check-item h4 {
+    color: #333;
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+}
+
+.check-item p {
+    color: #666;
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+/* --- Responsive View --- */
+@media (max-width: 992px) {
+    .check-grid {
+        grid-template-columns: repeat(2, 1fr); /* Tablets par 2 columns */
+    }
+}
+
+@media (max-width: 600px) {
+    .check-grid {
+        grid-template-columns: 1fr; /* Mobile par 1 column */
+        padding: 0 10px;
+    }
+    
+    .check-item {
+        padding: 20px;
+    }
+}
+
+
+
+/*feedback*/
+.feedback-section {
+    padding: 80px 0;
+    background: #ffffff;
+}
+
+.feedback-container {
+    display: flex;
+    gap: 50px;
+    align-items: center;
+    margin-top: 40px;
+    text-align: left;
+}
+
+.feedback-info {
+    flex: 1;
+}
+
+.feedback-info h3 {
+    font-size: 2rem;
+    color: #ff6b00;
+    margin-bottom: 20px;
+}
+
+.contact-badges span {
+    display: inline-block;
+    background: #fff4ec;
+    color: #ff6b00;
+    padding: 8px 15px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    margin: 5px;
+    font-weight: bold;
+    border: 1px solid #ff6b00;
+}
+
+.feedback-form {
+    flex: 1;
+    background: #fdf2e9;
+    padding: 40px;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.feedback-form input, 
+.feedback-form select, 
+.feedback-form textarea {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-family: inherit;
+}
+
+.btn-submit {
+    background: #ff6b00;
+    color: white;
+    border: none;
+    padding: 15px;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-submit:hover {
+    background: #e65c00;
+}
+
+/* --- Mobile Responsive --- */
+@media (max-width: 992px) {
+    .feedback-container {
+        flex-direction: column;
+        padding: 0 20px;
+    }
+    .feedback-info {
+        text-align: center;
+    }
+}
+
+
+/*qr code*/
+.qr-section { background: #fff5f0; padding: 60px 0; text-align: center; }
+.qr-generator-box {
+    display: flex;
+    gap: 30px;
+    background: white;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    margin-top: 30px;
+}
+.id-card {
+    width: 250px;
+    padding: 20px;
+    border: 2px solid #ff6b00;
+    border-radius: 15px;
+    background: linear-gradient(to bottom, #fff, #fff4ec);
+}
+#qrcode img { margin: 15px auto; }
+.btn-generate { background: #ff6b00; color: white; border: none; padding: 12px 20px; cursor: pointer; border-radius: 8px; font-weight: bold; }
+
+@media (max-width: 768px) {
+    .qr-generator-box { flex-direction: column; }
+}
+
+
+
+/* Container for the display side */
+.display-side {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+/* THE NEW BIGGER ID CARD DESIGN */
+.id-card-container {
+    width: 350px; /* Increased width */
+    background: #ffffff;
+    border: 3px solid #ff6b00; /* Saffron border */
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    overflow: hidden; /* To keep header/footer inside corners */
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Header Styling */
+.id-card-header {
+    background: #ff6b00;
+    color: white;
+    padding: 15px;
+}
+.id-card-header h3 { margin: 0; font-size: 1.4rem; letter-spacing: 1px; }
+.id-card-header p { margin: 0; font-size: 0.8rem; opacity: 0.9; }
+
+/* Body Styling */
+.id-card-body {
+    padding: 25px;
+}
+#display-name {
+    font-size: 1.5rem; /* Larger Name */
+    color: #333;
+    margin-bottom: 5px;
+    text-transform: uppercase;
+}
+.id-blood {
+    font-size: 1rem;
+    color: #666;
+    margin-bottom: 15px;
+}
+.id-blood span { font-weight: bold; color: #ff6b00; }
+
+/* QR Code centering and size */
+#qrcode img {
+    margin: 15px auto;
+    border: 4px solid #fdf2e9;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.emergency-instruction {
+    font-size: 0.85rem;
+    color: #888;
+    font-style: italic;
+    margin-top: 15px;
+}
+
+/* Footer Styling */
+.id-card-footer {
+    background: #fdf2e9;
+    padding: 10px;
+    border-top: 1px solid #ddd;
+}
+.id-card-footer p {
+    margin: 0;
+    font-size: 0.75rem;
+    color: #777;
+}
+
+/* Modern Download Button */
+.btn-download {
+    background: #2ecc71; /* Green for download */
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 50px;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: 0.3s;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+.btn-download:hover { background: #27ae60; transform: translateY(-2px); }
+
+/* Mobile responsiveness */
+@media (max-width: 600px) {
+    .id-card-container { width: 100%; max-width: 320px; }
+}

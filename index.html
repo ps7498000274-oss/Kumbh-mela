@@ -305,6 +305,52 @@
     </div>
 </section>
 
+<section id="checklist" class="checklist-section">
+    <div class="container">
+        <span class="sub-title" data-key="check_subtitle">Travel Smart</span>
+        <h2 data-key="check_title">Kumbh Yatra Essential Checklist</h2>
+        <p class="section-desc" data-key="check_desc">Make sure to check these essentials before starting your holy journey.</p>
+
+        <div class="check-grid">
+            <div class="check-item">
+                <div class="check-icon">🪪</div>
+                <h4 data-key="check_id">Valid ID Proof</h4>
+                <p data-key="check_id_desc">Carry original and photocopies of your Aadhar Card or Voter ID.</p>
+            </div>
+
+            <div class="check-item">
+                <div class="check-icon">💊</div>
+                <h4 data-key="check_med">Basic Medical Kit</h4>
+                <p data-key="check_med_desc">Include pain relief, fever meds, and your regular prescriptions.</p>
+            </div>
+
+            <div class="check-item">
+                <div class="check-icon">🧣</div>
+                <h4 data-key="check_cloth">Warm Clothing</h4>
+                <p data-key="check_cloth_desc">Nashik nights can be cold; carry a light sweater or shawl.</p>
+            </div>
+
+            <div class="check-item">
+                <div class="check-icon">🔋</div>
+                <h4 data-key="check_power">Portable Power Bank</h4>
+                <p data-key="check_power_desc">Phone batteries drain fast in crowds; keep a charged power bank.</p>
+            </div>
+
+            <div class="check-item">
+                <div class="check-icon">🧴</div>
+                <h4 data-key="check_hygiene">Personal Hygiene Kit</h4>
+                <p data-key="check_hygiene_desc">Carry sanitizer, small soap, and a towel for use after the holy dip.</p>
+            </div>
+
+            <div class="check-item">
+                <div class="check-icon">💰</div>
+                <h4 data-key="check_cash">Emergency Cash</h4>
+                <p data-key="check_cash_desc">Network issues might cause UPI failures; keep some physical cash.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
 <section id="hotels" class="hotels">
     <div class="container">
         <span class="sub-title" data-key="hotel_subtitle">Stay Guide</span>
@@ -516,39 +562,6 @@
     </div>
 </section>
 
-<section id="transport" class="transport-section">
-    <div class="container">
-        <span class="sub-title" data-key="trans_subtitle">Live Updates</span>
-        <h2 data-key="trans_title">City Movement & Crowd Status</h2>
-
-        <div id="status-card" class="status-card status-low">
-            <div class="status-header">
-                <div class="status-indicator">
-                    <span id="status-dot" class="dot"></span>
-                    <h3 id="status-title" data-key="status_low_title">LOW CROWD</h3>
-                </div>
-                <div class="live-label" data-key="live_label">LIVE</div>
-            </div>
-            
-            <div class="status-body">
-                <p id="status-msg" data-key="status_low_msg">Shahar mein yaatayaat samanya hai. Aap apni private gaadi se mukhya ghats tak ja sakte hain.</p>
-            </div>
-
-            <div class="status-footer">
-                <div class="parking-badge">
-                    <span class="icon">🅿️</span>
-                    <span id="parking-text" data-key="parking_open">All Parking Lots: OPEN</span>
-                </div>
-            </div>
-
-            <div class="status-controls">
-                <button onclick="updateCrowdStatus('low')" class="btn-s btn-green" data-key="btn_low">Set Low</button>
-                <button onclick="updateCrowdStatus('med')" class="btn-s btn-orange" data-key="btn_med">Set Med</button>
-                <button onclick="updateCrowdStatus('high')" class="btn-s btn-red" data-key="btn_high">Set High</button>
-            </div>
-        </div>
-    </div>
-</section>
 
 <section id="emergency" class="emergency-section">
     <div class="container">
@@ -644,6 +657,80 @@
     </div>
 </section>
 
+<section id="emergency-qr" class="qr-section">
+    <div class="container">
+        <span class="sub-title">Your Safety Our Priority</span>
+        <h2>Create Your Emergency Digital ID</h2>
+        <p>In a crowd of millions, stay safe. Generate a QR code with your emergency contact info.</p>
+
+        <div class="qr-generator-box">
+            <div class="input-side">
+                <input type="text" id="qr-name" placeholder="Full Name">
+                <input type="text" id="qr-blood" placeholder="Blood Group (e.g. O+)">
+                <input type="tel" id="qr-phone" placeholder="Emergency Phone Number">
+                <button onclick="generateQR()" class="btn-generate">Generate My Safety Card</button>
+            </div>
+            
+            <div class="display-side">
+    <div id="id-card-capture" class="id-card-container">
+        <div class="id-card-header">
+            <h3>KUMBH SEVA</h3>
+            <p>EMERGENCY DIGITAL ID</p>
+        </div>
+        
+        <div class="id-card-body">
+            <h4 id="display-name">Your Full Name</h4>
+            <p class="id-blood">Blood Group: <span id="display-blood">-</span></p>
+            
+            <div id="qrcode"></div> 
+            
+            <p class="emergency-instruction">Scan for Emergency Contact Details</p>
+        </div>
+        
+        <div class="id-card-footer">
+            <p>Powered by Avasare English Institute</p>
+        </div>
+    </div>
+    
+    <button onclick="downloadIDCard()" class="btn-download" style="display:none;">
+        <i class="fas fa-download"></i> Download Your Safety Card
+    </button>
+</div>
+        </div>
+    </div>
+</section>
+
+<section id="feedback" class="feedback-section">
+    <div class="container">
+        <span class="sub-title">We Value You</span>
+        <h2>Share Your Experience & Ideas</h2>
+        <p class="section-desc">Have a suggestion for the Kumbh Mela or a new feature idea for our website? We'd love to hear from you!</p>
+
+        <div class="feedback-container">
+            <div class="feedback-info">
+                <h3>Your Voice Matters! 💡</h3>
+                <p>Help us make the Kumbh experience better for everyone. Whether it's a review of our guide or a brilliant idea for Nashik's transport, let us know.</p>
+                <div class="contact-badges">
+                    <span>⭐ Review Our Site</span>
+                    <span>🚀 Suggest an Idea</span>
+                    <span>🤝 Join the Community</span>
+                </div>
+            </div>
+
+            <form action="https://formspree.io/f/mnjgreok" method="POST" class="feedback-form">
+    <input type="text" name="name" placeholder="Your Full Name" required>
+    <input type="email" name="email" placeholder="Your Email Address" required>
+    <select name="type">
+        <option value="review">Leave a Review</option>
+        <option value="idea">Suggest a New Idea</option>
+    </select>
+    <textarea name="message" rows="4" placeholder="Type your message here..." required></textarea>
+    <button type="submit" class="btn-submit">Send Message</button>
+</form>
+        </div>
+    </div>
+</section>
+
 <footer class="footer">
     <div class="container">
         <div class="footer-grid">
@@ -692,6 +779,13 @@
     </div>
 </footer>
 
+<div class="location-share-wrapper">
+    <button class="fab-location" onclick="shareMyLocation()" title="Share My Location">
+        <i class="fas fa-map-marker-alt"></i>
+        <span class="loc-text">Share My Location</span>
+    </button>
+</div>
+
 <div id="google_translate_element" style="display:none;"></div>
 <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 <div class="language-wrapper">
@@ -715,6 +809,10 @@
 </div>
 
 <script src="script.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 </body>
 <!-- load behavior safely after DOM is ready -->
 <script src="script.js"></script>

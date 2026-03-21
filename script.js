@@ -150,3 +150,110 @@ document.addEventListener('DOMContentLoaded', () => {
         };
     }
 });
+
+
+
+function shareMyLocation() {
+    if (navigator.geolocation) {
+        // User ko batane ke liye ki kaam ho raha hai
+        const btn = document.querySelector('.fab-location');
+        const originalText = btn.innerHTML;
+        btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Getting Location...';
+
+        navigator.geolocation.getCurrentPosition(function(position) {
+            const lat = position.coords.latitude;
+            const lng = position.coords.longitude;
+            
+            // Google Maps link banana
+            const mapsUrl = `https://www.google.com/maps?q=${lat},${lng}`;
+            
+            // WhatsApp par bhejne ke liye text
+            const text = encodeURIComponent(`नमस्ते, मैं नाशिक कुंभ मेला में यहाँ हूँ: ${mapsUrl}`);
+            const whatsappUrl = `https://wa.me/?text=${text}`;
+            
+            // Nayi window mein WhatsApp kholna
+            window.open(whatsappUrl, '_blank');
+            
+            // Button wapas normal karna
+            btn.innerHTML = originalText;
+        }, function(error) {
+            alert("Location access denied. Please enable GPS.");
+            btn.innerHTML = originalText;
+        });
+    } else {
+        alert("Your browser does not support Geolocation.");
+    }
+}
+
+
+function generateQR() {
+    // 1. Inputs se data uthao
+    const name = document.getElementById('qr-name').value;
+    const blood = document.getElementById('qr-blood').value;
+    const phone = document.getElementById('qr-phone').value;
+    const qrContainer = document.getElementById('qrcode');
+
+    // 2. Check karo ki inputs khali toh nahi hain
+    if (name === '' || phone === '') {
+        alert("Please enter Name and Phone number!");
+        return;
+    }
+
+    // 3. Purana QR saaf karo (Important!)
+    qrContainer.innerHTML = "";
+
+    // 4. Display updates
+    document.getElementById('display-name').innerText = name;
+    document.getElementById('display-blood').innerText = blood;
+
+    // 5. QR Code Data taiyar karo
+    const qrData = `Emergency Contact: ${name}\nBlood Group: ${blood}\nPhone: ${phone}`;
+
+    // 6. QR Generate karo
+    new QRCode(qrContainer, {
+        text: qrData,
+        width: 128,
+        height: 128,
+        colorDark : "#ff6b00", // Saffron color for Kumbh theme
+        colorLight : "#ffffff",
+        correctLevel : QRCode.CorrectLevel.H
+    });
+
+    // 7. Download button dikhao
+    document.querySelector('.btn-download').style.display = "inline-block";
+}
+
+
+
+/* Keep your generateQR() function as it is, but 
+   make sure it calls the bigger ID card IDs: */
+// document.getElementById('display-name').innerText = name;
+// document.getElementById('display-blood').innerText = blood;
+
+// THE NEW DOWNLOAD FUNCTION
+function downloadIDCard() {
+    const cardElement = document.getElementById('id-card-capture');
+    
+    // Check if the QR code is generated before downloading
+    const qrImage = document.querySelector('#qrcode img');
+    if (!qrImage) {
+        alert("Please generate the card first!");
+        return;
+    }
+
+    // Capture the HTML element as a canvas
+    html2canvas(cardElement).then(function(canvas) {
+        // Convert canvas to a data URL (image format)
+        const imgData = canvas.toDataURL("image/png");
+        
+        // Create a temporary anchor element to trigger download
+        const downloadLink = document.createElement('a');
+        downloadLink.href = imgData;
+        downloadLink.download = 'Kumbh-Safety-Card.png'; // File name
+        
+        // Trigger the click event
+        document.body.appendChild(downloadLink);
+        downloadLink.click();
+        document.body.removeChild(downloadLink);
+    });
+}
