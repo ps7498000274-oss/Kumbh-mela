@@ -659,43 +659,58 @@
 
 <section id="emergency-qr" class="qr-section">
     <div class="container">
-        <span class="sub-title">Your Safety Our Priority</span>
-        <h2>Create Your Emergency Digital ID</h2>
-        <p>In a crowd of millions, stay safe. Generate a QR code with your emergency contact info.</p>
+        <div class="qr-header-text">
+            <span class="badge-title">LIFE-SAVING FEATURE</span>
+            <h2>Kumbh Safety Identity Card</h2>
+            <p>Fill your details to generate a professional emergency card with a unique QR code.</p>
+        </div>
 
-        <div class="qr-generator-box">
-            <div class="input-side">
-                <input type="text" id="qr-name" placeholder="Full Name">
-                <input type="text" id="qr-blood" placeholder="Blood Group (e.g. O+)">
-                <input type="tel" id="qr-phone" placeholder="Emergency Phone Number">
-                <button onclick="generateQR()" class="btn-generate">Generate My Safety Card</button>
+        <div class="qr-main-grid">
+            <div class="qr-form-card">
+                <h3>Enter Your Details</h3>
+                <div class="input-box">
+                    <i class="fas fa-user"></i>
+                    <input type="text" id="qr-name" placeholder="Full Name">
+                </div>
+                <div class="input-box">
+                    <i class="fas fa-tint"></i>
+                    <input type="text" id="qr-blood" placeholder="Blood Group (e.g. O+)">
+                </div>
+                <div class="input-box">
+                    <i class="fas fa-phone"></i>
+                    <input type="tel" id="qr-phone" placeholder="Emergency Contact Number">
+                </div>
+                <button onclick="makeMyCard()" class="btn-main-gen">Generate Safety Card</button>
+                
+                <button id="download-btn" onclick="saveCardImage()" class="btn-main-download" style="display:none;">
+                    Download Card (PNG)
+                </button>
             </div>
-            
-            <div class="display-side">
-    <div id="id-card-capture" class="id-card-container">
-        <div class="id-card-header">
-            <h3>KUMBH SEVA</h3>
-            <p>EMERGENCY DIGITAL ID</p>
-        </div>
-        
-        <div class="id-card-body">
-            <h4 id="display-name">Your Full Name</h4>
-            <p class="id-blood">Blood Group: <span id="display-blood">-</span></p>
-            
-            <div id="qrcode"></div> 
-            
-            <p class="emergency-instruction">Scan for Emergency Contact Details</p>
-        </div>
-        
-        <div class="id-card-footer">
-            <p>Powered by Avasare English Institute</p>
-        </div>
+
+            <div class="qr-preview-side">
+                <div id="id-card-capture" class="final-id-design">
+                    <div class="id-top-bar">
+                        <div class="logo">
+        <a href="#home">
+            <img src="img/logo.png" alt="Avasare Kumbh Seva" class="site-logo">
+        </a>
     </div>
-    
-    <button onclick="downloadIDCard()" class="btn-download" style="display:none;">
-        <i class="fas fa-download"></i> Download Your Safety Card
-    </button>
-</div>
+                        <h4>AVASARE  KUMBH SEVA</h4>
+                    </div>
+                    <div class="id-inner-body">
+                        <h2 id="out-name">YOUR NAME</h2>
+                        <span class="blood-label">Blood Group: <b id="out-blood">-</b></span>
+                        
+                        <div id="qrcode-box">
+                            </div>
+                        
+                        <p class="scan-msg">Scan this in case of medical emergency</p>
+                    </div>
+                    <div class="id-footer-bar">
+                        Initiative by Avasare English Institute
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </section>

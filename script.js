@@ -186,74 +186,41 @@ function shareMyLocation() {
 }
 
 
-function generateQR() {
-    // 1. Inputs se data uthao
+function makeMyCard() {
     const name = document.getElementById('qr-name').value;
-    const blood = document.getElementById('qr-blood').value;
     const phone = document.getElementById('qr-phone').value;
-    const qrContainer = document.getElementById('qrcode');
+    const blood = document.getElementById('qr-blood').value;
 
-    // 2. Check karo ki inputs khali toh nahi hain
-    if (name === '' || phone === '') {
-        alert("Please enter Name and Phone number!");
+    if (!name || !phone) {
+        alert("Please enter Name and Emergency Phone!");
         return;
     }
 
-    // 3. Purana QR saaf karo (Important!)
-    qrContainer.innerHTML = "";
+    document.getElementById('out-name').innerText = name;
+    document.getElementById('out-blood').innerText = blood || "N/A";
 
-    // 4. Display updates
-    document.getElementById('display-name').innerText = name;
-    document.getElementById('display-blood').innerText = blood;
+    const qrBox = document.getElementById('qrcode-box');
+    qrBox.innerHTML = ""; // Clear old QR
 
-    // 5. QR Code Data taiyar karo
-    const qrData = `Emergency Contact: ${name}\nBlood Group: ${blood}\nPhone: ${phone}`;
-
-    // 6. QR Generate karo
-    new QRCode(qrContainer, {
-        text: qrData,
-        width: 128,
-        height: 128,
-        colorDark : "#ff6b00", // Saffron color for Kumbh theme
-        colorLight : "#ffffff",
-        correctLevel : QRCode.CorrectLevel.H
+    new QRCode(qrBox, {
+        text: `EMERGENCY ID\nName: ${name}\nBlood: ${blood}\nSOS: ${phone}`,
+        width: 150,
+        height: 150,
+        colorDark : "#222222",
+        colorLight : "#ffffff"
     });
 
-    // 7. Download button dikhao
-    document.querySelector('.btn-download').style.display = "inline-block";
+    // --- FIX: Download button ko dikhane ke liye ---
+    document.getElementById('download-btn').style.display = "block";
 }
 
-
-
-/* Keep your generateQR() function as it is, but 
-   make sure it calls the bigger ID card IDs: */
-// document.getElementById('display-name').innerText = name;
-// document.getElementById('display-blood').innerText = blood;
-
-// THE NEW DOWNLOAD FUNCTION
-function downloadIDCard() {
-    const cardElement = document.getElementById('id-card-capture');
+function saveCardImage() {
+    const card = document.getElementById('id-card-capture');
     
-    // Check if the QR code is generated before downloading
-    const qrImage = document.querySelector('#qrcode img');
-    if (!qrImage) {
-        alert("Please generate the card first!");
-        return;
-    }
-
-    // Capture the HTML element as a canvas
-    html2canvas(cardElement).then(function(canvas) {
-        // Convert canvas to a data URL (image format)
-        const imgData = canvas.toDataURL("image/png");
-        
-        // Create a temporary anchor element to trigger download
-        const downloadLink = document.createElement('a');
-        downloadLink.href = imgData;
-        downloadLink.download = 'Kumbh-Safety-Card.png'; // File name
-        
-        // Trigger the click event
-        document.body.appendChild(downloadLink);
-        downloadLink.click();
-        document.body.removeChild(downloadLink);
+    html2canvas(card, { scale: 3 }).then(canvas => {
+        const link = document.createElement('a');
+        link.href = canvas.toDataURL("image/png");
+        link.download = `Kumbh-Safety-ID-${document.getElementById('qr-name').value}.png`;
+        link.click();
     });
 }
