@@ -92,6 +92,7 @@ function startCountdown() {
 }
 
 // 5. LANGUAGE & GOOGLE TRANSLATE
+// 1. Google Translate Init
 function googleTranslateElementInit() {
     new google.translate.TranslateElement({
         pageLanguage: 'en',
@@ -100,19 +101,18 @@ function googleTranslateElementInit() {
     }, 'google_translate_element');
 }
 
-window.toggleLangCard = function() {
-    const card = document.getElementById('langCard');
-    if(card) card.classList.toggle('active');
-};
-
+// 2. Language Change Function
 window.changeLanguage = function(langCode) {
     const googleCombo = document.querySelector('.goog-te-combo');
     if (googleCombo) {
         googleCombo.value = langCode;
         googleCombo.dispatchEvent(new Event('change'));
-        toggleLangCard();
+        
+        // Card band karne ke liye
+        const langCard = document.getElementById('langCard');
+        if(langCard) langCard.classList.remove('active');
     } else {
-        console.log("Google Translate loading...");
+        alert("Translator is loading... Please try again in a second.");
     }
 };
 
@@ -125,3 +125,28 @@ window.toggleLangCard = function() {
         console.error("langCard nahi mila!");
     }
 };
+
+
+
+
+
+
+
+document.addEventListener('DOMContentLoaded', () => {
+    const menuBtn = document.getElementById('menuBtn');
+    const mainNav = document.getElementById('mainNav');
+
+    if (menuBtn && mainNav) {
+        // Button click hone par menu toggle hoga
+        menuBtn.onclick = function(e) {
+            e.stopPropagation(); // Event ko bahar jane se rokne ke liye
+            mainNav.classList.toggle('active');
+            console.log("Menu button clicked!");
+        };
+
+        // Screen par kahin bhi click karne par menu band ho jaye
+        document.onclick = function() {
+            mainNav.classList.remove('active');
+        };
+    }
+});

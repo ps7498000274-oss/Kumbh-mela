@@ -180,7 +180,7 @@ z-index:10;
 }
 
 nav a{
-margin-left:20px;
+margin-left:100px;
 text-decoration:none;
 color:white;
 font-weight:bold;
@@ -1765,18 +1765,107 @@ header {
 
 
 
-/* Mobile par menu ko chupane aur dikhane ke liye */
+/* Desktop Header Styling */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 5%;
+    background: #fff;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+#mainNav a {
+    margin: 0 1px;
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+}
+
+.mobile-menu-btn {
+    display: none; /* Desktop par chhupa rahega */
+    font-size: 24px;
+    background: none;
+    border: none;
+    color: #ff6b00;
+    cursor: pointer;
+}
+
+/* --- Mobile View (Tab aur Phone ke liye) --- */
+/* Sabse pehle header ko sahi karein taaki logo dikhta rahe */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    background: white;
+    position: sticky;
+    top: 0;
+    z-index: 1001; /* Sabse upar */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
 @media (max-width: 768px) {
+    /* 1. Logo aur Button ko ek line mein rakhein */
+    .logo {
+        font-size: 1.2rem;
+        font-weight: bold;
+        color: #ff6b00;
+        z-index: 1002;
+    }
+
+    .mobile-menu-btn {
+        display: block !important;
+        z-index: 1002;
+        background: none;
+        border: none;
+        font-size: 24px;
+        color: #ff6b00;
+    }
+
+    /* 2. Menu Box ko Chhota aur Logo ke NICHE set karein */
     #mainNav {
-        display: none; /* Pehle hidden */
+        display: none; /* Click par khulega */
+        position: absolute !important;
+        top: 100% !important; /* Header ke theek niche se shuru hoga */
+        left: 0;
+        width: 100%;
+        background: white !important;
+        
+        /* Box ko bada hone se rokne ke liye */
+        flex-direction: column !important;
+        height: auto !important; 
+        padding: 0 !important;
+        margin: 0 !important;
+        box-shadow: 0 10px 15px rgba(0,0,0,0.1);
+        border-top: 1px solid #eee;
     }
-    
+
     #mainNav.active {
-        display: flex !important; /* JS click par dikhega */
-        flex-direction: column;
-        /* Baaki styling yahan... */
+        display: flex !important;
     }
-}   
+
+    /* 3. Links (Boxes) ka size kam karein */
+    #mainNav a {
+        padding: 12px 20px !important; /* Height kam karne ke liye padding kam ki */
+        margin: 0 !important;
+        width: 100%;
+        text-align: left;
+        border-bottom: 1px solid #f5f5f5;
+        color: #333;
+        text-decoration: none;
+        font-size: 15px;
+        box-sizing: border-box;
+        flex: none !important; /* Isse box screen par failega nahi */
+    }
+
+    #mainNav a:last-child {
+        border-bottom: none;
+    }
+}
 
 
 
@@ -1846,4 +1935,45 @@ header {
 @keyframes slideUp {
     from { opacity: 0; transform: translateY(15px); }
     to { opacity: 1; transform: translateY(0); }
+}
+
+
+
+
+
+
+/* --- Base Styling (Desktop) --- */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+    /* Logo bada hone par header thoda bada dikhe isliye padding control karein */
+    padding: 10px 5%; 
+    
+    background: #fff;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+/* Logo Image ki nayi styling */
+.site-logo {
+    height: 80px !important; /* Perfect height taaki text dikhe (pehle 60px thi) */
+    width: auto !important; /* Width automatic rahegi */
+    object-fit: contain; /* Image clear rahegi, crop nahi hogi */
+    vertical-align: middle;
+}
+
+/* --- Mobile Styling --- */
+@media (max-width: 768px) {
+    header {
+        padding: 5px 15px; /* Mobile par thoda compact */
+    }
+
+    .site-logo {
+        /* Mobile screen par logo ko thoda compact karne ke liye height 65px */
+        height: 65px !important; 
+    }
 }

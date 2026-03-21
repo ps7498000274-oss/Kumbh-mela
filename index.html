@@ -12,27 +12,24 @@
 <body>
 
 <header>
-    <div class="logo" data-key="logo">🕉 Kumbh Guide</div>
+    <div class="logo">
+        <a href="#home">
+            <img src="img/logo.png" alt="Avasare Kumbh Seva" class="site-logo">
+        </a>
+    </div>
     
-    <div id="google_translate_element"></div>
-
-
     <button class="mobile-menu-btn" id="menuBtn">
         <i class="fas fa-bars"></i>
     </button>
 
-    <nav id="mainNav">
-        <a href="#home" data-key="nav_home">Home</a>
-        <a href="#services" data-key="nav_services">Services</a>
-        <a href="#dates" data-key="nav_dates">Dates</a>
-        <a href="#ghats" data-key="nav_ghats">Ghats</a>
-        <a href="#hotels" data-key="nav_hotels">Hotels</a>
-        <a href="#gallery" data-key="nav_gallery">Gallery</a>
-        <a href="#food" data-key="nav_food">Food</a>
-        <a href="#emergency" data-key="nav_emergency" class="emergency">Emergency</a>
+    <nav id="mainNav"> 
+        <a href="#home">Home</a>
+        <a href="#services">Services</a>
+        <a href="#dates">Dates</a>
+        <a href="#ghats">Ghats</a>
+        <a href="#food">Food</a>
+        <a href="#emergency">Emergency</a>
     </nav>
-
-    <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </header>
 
 <section class="live-widgets">
@@ -155,7 +152,7 @@
                 <div class="icon-box">🍲</div>
                 <h3 data-key="serv_food_title">Annakshetra</h3>
                 <p data-key="serv_food_desc">Find free food centers (Bhandara) and pure veg restaurants.</p>
-                <a href="#" class="read-more" data-key="serv_food_btn">Food Guide →</a>
+                <a href="#food" class="read-more" data-key="serv_food_btn">Food Guide →</a>
             </div>
 
             <div class="info-card">
@@ -267,7 +264,7 @@
                         <span data-key="feat_changing">🚿 Changing Rooms</span>
                         <span data-key="feat_medical">🚑 Medical Camp</span>
                     </div>
-                    <a href="#" target="_blank" class="nav-btn" data-key="btn_nav">📍 Navigate to Ghat</a>
+                    <a href="https://www.google.com/maps/dir/?api=1&destination=Ramkund+Nashik" target="_blank" class="nav-btn" data-key="btn_nav">📍 Navigate to Ghat</a>
                 </div>
             </div>
 
@@ -282,7 +279,7 @@
                         <span data-key="feat_peace">🌳 Peaceful</span>
                         <span data-key="feat_temple">🛕 Nearby Temples</span>
                     </div>
-                    <a href="#" target="_blank" class="nav-btn" data-key="btn_nav">📍 Navigate to Ghat</a>
+                    <a href="https://www.google.com/maps/dir/?api=1&destination=Tapovan+Nashik" target="_blank" class="nav-btn" data-key="btn_nav">📍 Navigate to Ghat</a>
                 </div>
             </div>
         </div>
@@ -301,13 +298,12 @@
                         <span data-key="feat_jyotir">🕉️ Jyotirlinga Near</span>
                         <span data-key="feat_akhada">🚩 Akhada Point</span>
                     </div>
-                    <a href="#" target="_blank" class="nav-btn" data-key="btn_nav">📍 Navigate to Ghat</a>
+                    <a href="https://www.google.com/maps/dir/?api=1&destination=Kushavarta+Kund+Trimbakeshwar" target="_blank" class="nav-btn" data-key="btn_nav">📍 Navigate to Ghat</a>
                 </div>
             </div>
         </div>
     </div>
 </section>
-
 <section id="hotels" class="hotels">
     <div class="container">
         <span class="sub-title" data-key="hotel_subtitle">Stay Guide</span>
@@ -451,17 +447,6 @@
         <p class="section-desc" data-key="food_desc">Kumbh Mela mein shuddh aur satvik bhojan ki vyavastha har jagah milti hai.</p>
 
         <div class="food-grid">
-            <div class="food-card free-food">
-                <div class="food-icon">🍴</div>
-                <h3 data-key="free_food_h3">Free Annakshetra (Bhandara)</h3>
-                <p data-key="free_food_p">Kumbh ke dauran sabhi bade Akhade (जैसे Juna, Niranjani) aur Ashrams mein muft bhojan milta hai.</p>
-                <ul class="food-tips">
-                    <li data-key="tip_open">✅ Sabhi ke liye khula hai</li>
-                    <li data-key="tip_satvik">✅ Shuddh aur Satvik Bhojan</li>
-                    <li data-key="tip_avail">✅ Har 1-2 km par uplabdh</li>
-                </ul>
-                <span class="tag" data-key="tag_punya">Punya Bhojan</span>
-            </div>
 
             <div class="food-card prasad">
                 <div class="food-icon">🙏</div>
@@ -705,12 +690,11 @@
         </div>
     </div>
 </footer>
+
+<div id="google_translate_element" style="display:none;"></div>
+<script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 <div class="language-wrapper">
         <div class="lang-card" id="langCard">
-            <div class="lang-header">
-                <i class="fas fa-language"></i>
-                <span>Select Language</span>
-            </div>
             <div class="lang-grid">
                 <button type="button" onclick="changeLanguage('en')">English</button>
                 <button type="button" onclick="changeLanguage('hi')">हिन्दी</button>
@@ -727,7 +711,7 @@
         <button class="fab-lang" onclick="toggleLangCard()">
             <i class="fas fa-globe-asia"></i>
         </button>
-    </div>
+</div>
 
 <script src="script.js"></script>
 </body>
