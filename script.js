@@ -46,38 +46,9 @@ async function getLiveWeather() {
     }
 }
 
-// 3. CROWD STATUS LOGIC (Fixing function name mismatch)
-window.updateCrowdStatus = function(level) {
-    const card = document.getElementById('status-card');
-    const title = document.getElementById('status-title');
-    const msg = document.getElementById('status-msg');
-    const parking = document.getElementById('parking-text');
-
-    if (!card) return;
-
-    card.classList.remove('status-low', 'status-med', 'status-high');
-
-    if (level === 'low') {
-        card.classList.add('status-low');
-        title.innerText = "LOW CROWD";
-        msg.innerText = "Shahar mein yaatayaat samanya hai. Private gaadiyan allowed hain.";
-        parking.innerText = "All Parking Lots: OPEN";
-    } else if (level === 'med') {
-        card.classList.add('status-med');
-        title.innerText = "MEDIUM CROWD";
-        msg.innerText = "Bheed badh rahi hai. Kripya public transport ka upyog karein.";
-        parking.innerText = "City Parking: 80% Full";
-    } else if (level === 'high') {
-        card.classList.add('status-high');
-        title.innerText = "HIGH CROWD (ALERT)";
-        msg.innerText = "SHAHI SNAN ALERT: Sirf paidal yaatra karein.";
-        parking.innerText = "Outer Parking: FULL";
-    }
-};
-
 // 4. COUNTDOWN TIMER
 function startCountdown() {
-    const kumbhDate = new Date("August 14, 2027 00:00:00").getTime();
+    const kumbhDate = new Date("October  31, 2026 00:00:00").getTime();
     setInterval(function() {
         const now = new Date().getTime();
         const distance = kumbhDate - now;
@@ -189,38 +160,35 @@ function shareMyLocation() {
 function makeMyCard() {
     const name = document.getElementById('qr-name').value;
     const phone = document.getElementById('qr-phone').value;
-    const blood = document.getElementById('qr-blood').value;
+    const blood = document.getElementById('qr-blood').value || "N/A";
+    const address = document.getElementById('qr-address').value || "N/A";
+    const medical = document.getElementById('qr-medical').value || "None";
 
     if (!name || !phone) {
-        alert("Please enter Name and Emergency Phone!");
+        alert("Pahile Naav ani Number taka!"); // Marathi/Hindi mix touch
         return;
     }
 
-    document.getElementById('out-name').innerText = name;
-    document.getElementById('out-blood').innerText = blood || "N/A";
+    // Display updates
+    document.getElementById('out-name').innerText = name.toUpperCase();
+    document.getElementById('out-blood').innerText = blood;
+    document.getElementById('out-address').innerText = address;
+    document.getElementById('out-medical').innerText = medical;
+
+    // QR Data Formatting
+    const qrData = `KUMBH SAFETY ID\nName: ${name}\nSOS: ${phone}\nBlood: ${blood}\nCity: ${address}\nMedical: ${medical}`;
 
     const qrBox = document.getElementById('qrcode-box');
-    qrBox.innerHTML = ""; // Clear old QR
+    qrBox.innerHTML = ""; 
 
     new QRCode(qrBox, {
-        text: `EMERGENCY ID\nName: ${name}\nBlood: ${blood}\nSOS: ${phone}`,
-        width: 150,
-        height: 150,
-        colorDark : "#222222",
-        colorLight : "#ffffff"
+        text: qrData,
+        width: 128,
+        height: 128,
+        colorDark : "#000000",
+        colorLight : "#ffffff",
+        correctLevel : QRCode.CorrectLevel.M
     });
 
-    // --- FIX: Download button ko dikhane ke liye ---
     document.getElementById('download-btn').style.display = "block";
-}
-
-function saveCardImage() {
-    const card = document.getElementById('id-card-capture');
-    
-    html2canvas(card, { scale: 3 }).then(canvas => {
-        const link = document.createElement('a');
-        link.href = canvas.toDataURL("image/png");
-        link.download = `Kumbh-Safety-ID-${document.getElementById('qr-name').value}.png`;
-        link.click();
-    });
 }
