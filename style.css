@@ -1,6 +1,14 @@
-body{
-margin:0;
-font-family:Arial;
+body {
+    margin: 0;
+    font-family: 'Poppins', Arial, sans-serif;
+    line-height: 1.8; /* हिन्दी मात्राओं के लिए 1.8 स्पेस बेस्ट है */
+    text-align: justify; /* टेक्स्ट को साफ़ दिखाने के लिए */
+}
+
+/* अगर हिन्दी में हेडिंग्स बहुत बड़ी लगें तो उन्हें हल्का सा छोटा कर दें */
+h1, h2, h3 {
+    line-height: 1.4;
+    margin-bottom: 15px;
 }
 
 .lang-switcher {

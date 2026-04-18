@@ -192,3 +192,19 @@ function makeMyCard() {
 
     document.getElementById('download-btn').style.display = "block";
 }
+
+function googleTranslateElementInit() {
+    new google.translate.TranslateElement({
+        pageLanguage: 'en', // मूल कोड इंग्लिश में है
+        includedLanguages: 'hi,en,mr,gu', // जो भाषाएँ आप देना चाहते हैं
+    }, 'google_translate_element');
+
+    // पेज लोड होते ही हिन्दी पर स्विच करने के लिए
+    setTimeout(function() {
+        var selectElement = document.querySelector('select.goog-te-combo');
+        if (selectElement) {
+            selectElement.value = 'hi'; // यहाँ 'hi' मतलब हिन्दी
+            selectElement.dispatchEvent(new Event('change'));
+        }
+    }, 1000); // 1 सेकंड का इंतज़ार ताकि Google स्क्रिप्ट लोड हो जाए
+}
