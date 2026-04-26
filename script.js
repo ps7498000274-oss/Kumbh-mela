@@ -423,3 +423,37 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 });
+
+// --- 1. FORCE HINDI ON EVERY LOAD & BACK BUTTON ---
+function applyHindi() {
+    // Cookie set karo
+    document.cookie = "googtrans=/en/hi; path=/";
+    document.cookie = "googtrans=/en/hi; domain=" + window.location.hostname + "; path=/";
+    
+    // Hash set karo agar nahi hai
+    if (!window.location.hash.includes('#googtrans(en|hi)')) {
+        window.location.hash = '#googtrans(en|hi)';
+    }
+}
+
+// Page load aur Back button dono par chalega
+window.addEventListener('pageshow', applyHindi);
+applyHindi(); // Immediate run
+
+function googleTranslateElementInit() {
+    new google.translate.TranslateElement({
+        pageLanguage: 'en',
+        includedLanguages: 'en,hi,mr,bn,te,ta,gu,kn,pa,ml',
+        autoDisplay: false
+    }, 'google_translate_element');
+
+    // Dropdown milte hi Hindi select karo
+    var checkCombo = setInterval(function() {
+        var combo = document.querySelector('.goog-te-combo');
+        if (combo) {
+            combo.value = 'hi';
+            combo.dispatchEvent(new Event('change'));
+            clearInterval(checkCombo);
+        }
+    }, 500);
+}

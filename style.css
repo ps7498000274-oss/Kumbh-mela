@@ -2323,3 +2323,23 @@ body { margin: 0; background: #0a0a0a; color: white; top: 0 !important; }
 
 /* Hide Google Branding */
 .goog-te-banner-frame, .skiptranslate, .goog-te-gadget-icon { display: none !important; }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#google_translate_element { display: none; }
