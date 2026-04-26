@@ -1,0 +1,909 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Premium Ashram Stays | Nashik Kumbh 2027</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/dist/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="google" content="notranslate"> <link rel="stylesheet" href="style.css">
+    <style>
+    /* Global Styles */
+    :root {
+        --primary-gold: #d4af37;
+        --dark-bg: #0f0f0f;
+        --card-bg: #1a1a1a;
+        --text-white: #ffffff;
+        --text-gray: #b0b0b0;
+        --accent-orange: #ff6600;
+    }
+
+    body {
+        background-color: var(--dark-bg);
+        color: var(--text-white);
+        margin: 0;
+        line-height: 1.6;
+    }
+
+    /* Header Styling */
+    .premium-header {
+        background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1624314138470-5a2f24623f10?q=80&w=2000') no-repeat center center/cover;
+        padding: 80px 20px;
+        text-align: center;
+        border-bottom: 2px solid var(--primary-gold);
+    }
+
+    .back-btn {
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        color: var(--primary-gold);
+        text-decoration: none;
+        font-weight: 600;
+        border: 1px solid var(--primary-gold);
+        padding: 8px 15px;
+        border-radius: 5px;
+        transition: 0.3s;
+    }
+
+    .back-btn:hover {
+        background: var(--primary-gold);
+        color: #000;
+    }
+
+    .header-text h1 {
+        font-family: 'Playfair Display', serif;
+        font-size: 3rem;
+        margin-bottom: 10px;
+        color: var(--primary-gold);
+    }
+
+    /* Container & Grid */
+    .container-premium {
+        max-width: 1200px;
+        margin: 50px auto;
+        padding: 0 20px;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        gap: 30px;
+    }
+
+    /* Premium Card Styling */
+    .premium-card {
+        background: var(--card-bg);
+        border-radius: 15px;
+        overflow: hidden;
+        border: 1px solid #333;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .premium-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 10px 30px rgba(212, 175, 55, 0.2);
+        border-color: var(--primary-gold);
+    }
+
+    .card-header {
+        background: #252525;
+        padding: 20px;
+        border-bottom: 1px solid #333;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .card-header h2 {
+        font-size: 1.3rem;
+        margin: 0;
+        color: var(--primary-gold);
+    }
+
+    .rating-badge {
+        background: rgba(212, 175, 55, 0.1);
+        color: var(--primary-gold);
+        padding: 4px 8px;
+        border-radius: 5px;
+        font-size: 0.8rem;
+        font-weight: 600;
+    }
+
+    .card-content {
+        padding: 25px;
+        flex-grow: 1;
+    }
+
+    .section-label {
+        display: block;
+        color: var(--primary-gold);
+        text-transform: uppercase;
+        font-size: 0.75rem;
+        letter-spacing: 1px;
+        margin-bottom: 10px;
+        font-weight: 600;
+    }
+
+    .description {
+        color: var(--text-gray);
+        font-size: 0.95rem;
+        margin-bottom: 20px;
+    }
+
+    .details-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .detail-item p {
+        margin: 5px 0;
+        font-size: 0.9rem;
+        color: #eee;
+    }
+
+    .detail-item i {
+        color: var(--primary-gold);
+        margin-right: 10px;
+    }
+
+    /* Amenities Tags */
+    .amenities {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-top: 5px;
+    }
+
+    .amenity-tag {
+        background: #333;
+        font-size: 0.75rem;
+        padding: 4px 10px;
+        border-radius: 20px;
+        color: #ddd;
+    }
+
+    /* Action Bar Buttons */
+    .action-bar {
+        padding: 20px;
+        background: #252525;
+        display: flex;
+        gap: 10px;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .btn-map, .btn-call {
+        flex: 1;
+        text-align: center;
+        padding: 10px;
+        text-decoration: none;
+        border-radius: 8px;
+        font-size: 0.9rem;
+        font-weight: 600;
+        transition: 0.3s;
+    }
+
+    .btn-map {
+        background: transparent;
+        color: var(--primary-gold);
+        border: 1px solid var(--primary-gold);
+    }
+
+    .btn-map:hover {
+        background: var(--primary-gold);
+        color: #000;
+    }
+
+    .btn-call {
+        background: var(--accent-orange);
+        color: #fff;
+    }
+
+    .btn-call:hover {
+        background: #e65c00;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+        .header-text h1 { font-size: 2rem; }
+        .container-premium { grid-template-columns: 1fr; }
+    }
+</style>
+</head>
+<body>
+    <div class="lang-fab" onclick="toggleLangMenu()">
+        <i class="fas fa-globe"></i>
+    </div>
+
+    <div class="lang-menu" id="langMenu">
+        <div class="lang-grid">
+            <button onclick="changeLang('en')">English</button>
+            <button onclick="changeLang('hi')">हिंदी</button>
+            <button onclick="changeLang('mr')">मराठी</button>
+            <button onclick="changeLang('bn')">বাংলা</button>
+            <button onclick="changeLang('te')">తెలుగు</button>
+            <button onclick="changeLang('ta')">தமிழ்</button>
+            <button onclick="changeLang('gu')">ગુજરાતી</button>
+            <button onclick="changeLang('kn')">ಕನ್ನಡ</button>
+            <button onclick="changeLang('pa')">ਪੰਜਾਬੀ</button>
+            <button onclick="changeLang('ml')">മലയാളം</button>
+        </div>
+    </div>
+
+    <div id="google_translate_element"></div>
+
+    <script src="script.js"></script>
+    <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+
+    <header class="premium-header">
+        <a href="index.html" class="back-btn"><i class="fas fa-arrow-left"></i> Home</a>
+        <div class="header-text">
+            <h1>Spiritual Ashram Guide</h1>
+            <p>Handpicked Premium Stays for your Nashik Kumbh Pilgrimage</p>
+        </div>
+    </header>
+
+    <div class="container-premium">
+        
+        <div class="premium-card">
+            <div class="card-header">
+                <h2>Tapovan Brahmacharya Ashram</h2>
+                <span class="rating-badge">⭐ 4.2 Rating</span>
+            </div>
+            <div class="card-content">
+                <span class="section-label">About the Ashram</span>
+                <p class="description">A religious and educational institution in Panchavati part of the Swaminarayan spiritual tradition. It functions as a center for spiritual learning, meditation, and philanthropy.</p>
+                
+                <div class="details-grid">
+                    <div class="detail-item">
+                        <span class="section-label">Address</span>
+                        <p><i class="fas fa-map-marker-alt"></i> Tapovan Rd, Adgaon Naka, Panchavati, Nashik - 422003</p>
+                    </div>
+                    <div class="detail-item">
+                        <span class="section-label">Facilities</span>
+                        <div class="amenities">
+                            <span class="amenity-tag">Education</span>
+                            <span class="amenity-tag">Meditation</span>
+                            <span class="amenity-tag">Philanthropy</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="action-bar">
+                <a href="https://www.google.com/maps/search/?api=1&query=Tapovan+Brahmacharya+Ashram+Nashik" target="_blank" class="btn-map"><i class="fas fa-directions"></i> Get Directions</a>
+                <a href="tel:02532514570" class="btn-call"><i class="fas fa-phone"></i> Call: 0253 251 4570</a>
+            </div>
+        </div>
+
+        <div class="premium-card">
+            <div class="card-header">
+                <h2>Sri Loknath Tirtha Swami Maharaj Ashram</h2>
+                <span class="rating-badge">⭐ 4.7 Rating</span>
+            </div>
+            <div class="card-content">
+                <span class="section-label">Spiritual Legacy</span>
+                <p class="description">Key hub of the Mahayoga tradition. Known for promoting meditation, inner awakening, and spiritual service under the disciple lineage of Shri Loknath Tirth Swami Maharaj.</p>
+                
+                <div class="details-grid">
+                    <div class="detail-item">
+                        <span class="section-label">Address</span>
+                        <p><i class="fas fa-map-marker-alt"></i> Vise Mala, Arcit Vihar, Shreerang Nagar, Nashik - 422013</p>
+                    </div>
+                    <div class="detail-item">
+                        <span class="section-label">Rules & Timings</span>
+                        <p><i class="fas fa-clock"></i> Open until 9:00 PM</p>
+                    </div>
+                </div>
+            </div>
+            <div class="action-bar">
+                <a href="https://www.google.com/maps/search/?api=1&query=Sri+Loknath+Tirtha+Swami+Maharaj+Ashram+Nashik" target="_blank" class="btn-map"><i class="fas fa-directions"></i> Get Directions</a>
+                <a href="tel:02532311616" class="btn-call"><i class="fas fa-phone"></i> Call: 0253 231 1616</a>
+            </div>
+        </div>
+
+        <div class="premium-card">
+            <div class="card-header">
+                <h2>Sant Shri Asharamji Ashram</h2>
+                <span class="rating-badge">⭐ 4.3 Rating</span>
+            </div>
+            <div class="card-content">
+                <span class="section-label">Community Hub</span>
+                <p class="description">Situated on Gangapur Road, this center is a hub for devotional practices, meditation, and community service initiatives in the Rambhoomi area.</p>
+                
+                <div class="details-grid">
+                    <div class="detail-item">
+                        <span class="section-label">Address</span>
+                        <p><i class="fas fa-map-marker-alt"></i> Gangapur Road, Savarkar Nagar, Nashik - 422013</p>
+                    </div>
+                    <div class="detail-item">
+                        <span class="section-label">Timings</span>
+                        <p><i class="fas fa-moon"></i> Open until 12:00 AM</p>
+                    </div>
+                </div>
+            </div>
+            <div class="action-bar">
+                <a href="https://www.google.com/maps/search/?api=1&query=Sant+Shri+Asharamji+Ashram+Nashik" target="_blank" class="btn-map"><i class="fas fa-directions"></i> Get Directions</a>
+                <a href="tel:07927505010" class="btn-call"><i class="fas fa-phone"></i> Call: 079 2750 5010</a>
+            </div>
+        </div>
+
+        <div class="premium-card">
+            <div class="card-header">
+                <h2>Sant Janardhan Swami Ashram</h2>
+                <span class="rating-badge">⭐ 4.6 Rating</span>
+            </div>
+            <div class="card-content">
+                <span class="section-label">Charitable Services</span>
+                <p class="description">Dedicated to Rashtrasant Janardhan Swami Moungiri Maharaj, this ashram is a prominent center for religious observance and large-scale charitable initiatives.</p>
+                
+                <div class="details-grid">
+                    <div class="detail-item">
+                        <span class="section-label">Address</span>
+                        <p><i class="fas fa-map-marker-alt"></i> Old Adgaon Naka, Vaishnavi Park, Nashik - 422003</p>
+                    </div>
+                    <div class="detail-item">
+                        <span class="section-label">Type</span>
+                        <p><i class="fas fa-home"></i> Religious Mutt & Community Center</p>
+                    </div>
+                </div>
+            </div>
+            <div class="action-bar">
+                <a href="https://www.google.com/maps/search/?api=1&query=Sant+Janardhan+Swami+Ashram+Nashik" target="_blank" class="btn-map"><i class="fas fa-directions"></i> Get Directions</a>
+                <p style="color: #888; font-style: italic;">Contact at Counter</p>
+            </div>
+        </div>
+
+        <div class="premium-card">
+            <div class="card-header">
+                <h2>Shri Krishna Tirth Ashram</h2>
+                <span class="rating-badge">⭐ 4.6 Rating</span>
+            </div>
+            <div class="card-content">
+                <span class="section-label">Temple & Meditation</span>
+                <p class="description">Located within the Shri Kashi Vishwanath Mahadev Mandir premises. A serene place for devotees to engage in Vedic rituals, prayer, and meditation near Panchavati.</p>
+                
+                <div class="details-grid">
+                    <div class="detail-item">
+                        <span class="section-label">Address</span>
+                        <p><i class="fas fa-map-marker-alt"></i> Old Adgaon Naka, Panchavati, Nashik - 422003</p>
+                    </div>
+                    <div class="detail-item">
+                        <span class="section-label">Timings</span>
+                        <p><i class="fas fa-clock"></i> Open until 10:00 PM</p>
+                    </div>
+                </div>
+            </div>
+            <div class="action-bar">
+                <a href="https://www.google.com/maps/search/?api=1&query=Ram+Kund+Nashik+Panchavati5" target="_blank" class="btn-map"><i class="fas fa-directions"></i> Get Directions</a>
+                <a href="tel:09325561690" class="btn-call"><i class="fas fa-phone"></i> Call: 093255 61690</a>
+            </div>
+        </div>
+
+        <div class="premium-card">
+            <div class="card-header">
+                <h2>Shreedhar Swami Ashram</h2>
+                <span class="rating-badge">⭐ 4.6 Rating</span>
+            </div>
+            <div class="card-content">
+                <span class="section-label">Spiritual Retreat</span>
+                <p class="description">A Hindu spiritual retreat and temple complex. It serves as a center for community welfare and devotional guidance in a peaceful environment.</p>
+                
+                <div class="details-grid">
+                    <div class="detail-item">
+                        <span class="section-label">Address</span>
+                        <p><i class="fas fa-map-marker-alt"></i> Plot no.13, Sahajivan Nagar, Krishna Nagar, Nashik - 422003</p>
+                    </div>
+                    <div class="detail-item">
+                        <span class="section-label">Timings</span>
+                        <p><i class="fas fa-sun"></i> Open until 3:00 PM</p>
+                    </div>
+                </div>
+            </div>
+            <div class="action-bar">
+                <a href="https://www.google.com/maps/search/?api=1&query=Ram+Kund+Nashik+Panchavati6" target="_blank" class="btn-map"><i class="fas fa-directions"></i> Get Directions</a>
+                <a href="tel:09421560213" class="btn-call"><i class="fas fa-phone"></i> Call: 094215 60213</a>
+            </div>
+        </div>
+
+        <div class="premium-card">
+            <div class="card-header">
+                <h2>Guru Gangeshwar Dham Ashram</h2>
+                <span class="rating-badge">⭐ 4.3 Rating</span>
+            </div>
+            <div class="card-content">
+                <span class="section-label">Vedantic Teachings</span>
+                <p class="description">Established under Swami Gangeshwaranand Ji Maharaj Udaseen. Known for promoting Sanatan Dharma and Vedic studies in the heart of Tidke Colony.</p>
+                
+                <div class="details-grid">
+                    <div class="detail-item">
+                        <span class="section-label">Address</span>
+                        <p><i class="fas fa-map-marker-alt"></i> Tidke Colony, Nashik - 422002</p>
+                    </div>
+                    <div class="detail-item">
+                        <span class="section-label">Speciality</span>
+                        <p><i class="fas fa-book-open"></i> Vedic Study & Worship</p>
+                    </div>
+                </div>
+            </div>
+            <div class="action-bar">
+                <a href="https://www.google.com/maps/search/?api=1&query=Ram+Kund+Nashik+Panchavati7" target="_blank" class="btn-map"><i class="fas fa-directions"></i> Get Directions</a>
+                <a href="tel:02532582809" class="btn-call"><i class="fas fa-phone"></i> Call: 0253 258 2809</a>
+            </div>
+        </div>
+
+        <div class="premium-card">
+            <div class="card-header">
+                <h2>Swami Samarth Kendra</h2>
+                <span class="rating-badge">⭐ 4.5 Rating</span>
+            </div>
+            <div class="card-content">
+                <span class="section-label">Devotional Hub</span>
+                <p class="description">Dedicated to Shri Swami Samarth Maharaj (Incarnation of Lord Dattatreya). A central place for worship and community service for the local devotees.</p>
+                
+                <div class="details-grid">
+                    <div class="detail-item">
+                        <span class="section-label">Address</span>
+                        <p><i class="fas fa-map-marker-alt"></i> Kausalya Nagar, Ram Wadi, Nashik - 422003</p>
+                    </div>
+                    <div class="detail-item">
+                        <span class="section-label">Services</span>
+                        <p><i class="fas fa-hands-helping"></i> Community Service & Aarti</p>
+                    </div>
+                </div>
+            </div>
+            <div class="action-bar">
+                <a href="https://www.google.com/maps/search/?api=1&query=Ram+Kund+Nashik+Panchavati8" target="_blank" class="btn-map"><i class="fas fa-directions"></i> Get Directions</a>
+                <a href="tel:08698936346" class="btn-call"><i class="fas fa-phone"></i> Call: 086989 36346</a>
+            </div>
+        </div>
+
+        <div class="premium-card">
+            <div class="card-header">
+                <h2>Avdhoot Swami Ashram</h2>
+                <span class="rating-badge">⭐ 4.3 Rating</span>
+            </div>
+            <div class="card-content">
+                <span class="section-label">Charitable Retreat</span>
+                <p class="description">A peaceful retreat located near the sacred Godavari River. Focuses on meditation, devotion, and providing spiritual guidance to visitors.</p>
+                
+                <div class="details-grid">
+                    <div class="detail-item">
+                        <span class="section-label">Address</span>
+                        <p><i class="fas fa-map-marker-alt"></i> Gangawadi, Raviwar Karanja, Panchavati - 422001</p>
+                    </div>
+                    <div class="detail-item">
+                        <span class="section-label">Location</span>
+                        <p><i class="fas fa-water"></i> Near Godavari River</p>
+                    </div>
+                </div>
+            </div>
+            <div class="action-bar">
+                <a href="https://www.google.com/maps/search/?api=1&query=Ram+Kund+Nashik+Panchavati9" target="_blank" class="btn-map"><i class="fas fa-directions"></i> Get Directions</a>
+                <a href="tel:01334227071" class="btn-call"><i class="fas fa-phone"></i> Call: 01334 227 071</a>
+            </div>
+        </div>
+
+        <div class="premium-card">
+            <div class="card-header">
+                <h2>Swami Janananda Guru Nityanand Ashram Trust</h2>
+                <span class="rating-badge">⭐ 3.7 Rating</span>
+            </div>
+            <div class="card-content">
+                <span class="section-label">Peaceful Meditation</span>
+                <p class="description">Located near the Gandhi Nagar Airport area, this ashram follows the teachings of Swami Nityanand, providing a quiet space for meditation and welfare activities.</p>
+                
+                <div class="details-grid">
+                    <div class="detail-item">
+                        <span class="section-label">Address</span>
+                        <p><i class="fas fa-map-marker-alt"></i> Gandhi Nagar Airport Area, Deolali Gaon, Nashik Road - 422102</p>
+                    </div>
+                    <div class="detail-item">
+                        <span class="section-label">Inspiration</span>
+                        <p><i class="fas fa-om"></i> Teachings of Swami Nityanand</p>
+                    </div>
+                </div>
+            </div>
+            <div class="action-bar">
+                <a href="https://www.google.com/maps/search/?api=1&query=Kushavarta+Kund+Trimbakeshwar0" target="_blank" class="btn-map"><i class="fas fa-directions"></i> Get Directions</a>
+                <p style="color: #888; font-style: italic;">Contact at Ashram Premises</p>
+            </div>
+        </div>
+
+        <div class="premium-card">
+            <div class="card-header">
+                <h2>Radhakrishna Motumal Sindhi Ashram</h2>
+                <span class="rating-badge">⭐ 4.7 Rating</span>
+            </div>
+            <div class="card-content">
+                <span class="section-label">Lodging & Dharamshala</span>
+                <p class="description">A prominent religious lodging facility providing affordable and serene accommodation. Located in the heart of Panchavati, it is perfect for pilgrims visiting nearby temples and ghats.</p>
+                
+                <div class="details-grid">
+                    <div class="detail-item">
+                        <span class="section-label">Address</span>
+                        <p><i class="fas fa-map-marker-alt"></i> Opp. Manas Restaurant, Panchavati Karanja, Nashik - 422003</p>
+                    </div>
+                    <div class="detail-item">
+                        <span class="section-label">Timings</span>
+                        <p><i class="fas fa-moon"></i> Open until 12:00 AM</p>
+                    </div>
+                </div>
+            </div>
+            <div class="action-bar">
+                <a href="https://www.google.com/maps/search/?api=1&query=Kushavarta+Kund+Trimbakeshwar1" target="_blank" class="btn-map"><i class="fas fa-directions"></i> Get Directions</a>
+                <a href="tel:02532513511" class="btn-call"><i class="fas fa-phone"></i> Call: 0253 251 3511</a>
+            </div>
+        </div>
+
+        <div class="premium-card">
+            <div class="card-header">
+                <h2>Capuchin Ashram</h2>
+                <span class="rating-badge">⭐ 4.7 Rating</span>
+            </div>
+            <div class="card-content">
+                <span class="section-label">Religious Retreat</span>
+                <p class="description">Operated by the Franciscan Order, this ashram is a center for prayer, deep reflection, and community outreach. It offers a very quiet and disciplined environment for visitors.</p>
+                
+                <div class="details-grid">
+                    <div class="detail-item">
+                        <span class="section-label">Address</span>
+                        <p><i class="fas fa-map-marker-alt"></i> St. Joseph's Grounds, Near Kilbil, College Road, Nashik - 422005</p>
+                    </div>
+                    <div class="detail-item">
+                        <span class="section-label">Nature</span>
+                        <p><i class="fas fa-cross"></i> Christian Retreat & Prayer Center</p>
+                    </div>
+                </div>
+            </div>
+            <div class="action-bar">
+                <a href="https://www.google.com/maps/search/?api=1&query=Kushavarta+Kund+Trimbakeshwar2" target="_blank" class="btn-map"><i class="fas fa-directions"></i> Get Directions</a>
+                <span style="color: #888;">Visit for Inquiry</span>
+            </div>
+        </div>
+
+        <div class="premium-card">
+            <div class="card-header">
+                <h2>KAILAS MATH TRUST NASIK</h2>
+                <span class="rating-badge">⭐ 4.3 Rating</span>
+            </div>
+            <div class="card-content">
+                <span class="section-label">Spiritual Institution</span>
+                <p class="description">Founded in 1974, this is a legendary charitable trust in Nashik. It promotes cultural and social welfare activities alongside being a revered place for spiritual stay.</p>
+                
+                <div class="details-grid">
+                    <div class="detail-item">
+                        <span class="section-label">Address</span>
+                        <p><i class="fas fa-map-marker-alt"></i> 4614, Peth Rd, Rajpal Colony, Panchavati - 422003</p>
+                    </div>
+                    <div class="detail-item">
+                        <span class="section-label">Legacy</span>
+                        <p><i class="fas fa-history"></i> Serving since 1974</p>
+                    </div>
+                </div>
+            </div>
+            <div class="action-bar">
+                <a href="https://www.google.com/maps/search/?api=1&query=Kushavarta+Kund+Trimbakeshwar3" target="_blank" class="btn-map"><i class="fas fa-directions"></i> Get Directions</a>
+                <a href="tel:02532510111" class="btn-call"><i class="fas fa-phone"></i> Call: 0253 251 0111</a>
+            </div>
+        </div>
+
+        <div class="premium-card">
+            <div class="card-header">
+                <h2>Shree Hans Yog Ashram</h2>
+                <span class="rating-badge">⭐ 4.7 Rating</span>
+            </div>
+            <div class="card-content">
+                <span class="section-label">Yoga & Meditation</span>
+                <p class="description">Operates under Manav Utthan Seva Samiti. This ashram is a major hub for yoga practice, meditation, and humanitarian outreach in the Dwarka/Tapovan area.</p>
+                
+                <div class="details-grid">
+                    <div class="detail-item">
+                        <span class="section-label">Address</span>
+                        <p><i class="fas fa-map-marker-alt"></i> Tapovan Rd, Near Laminozayan Bridge, Dwarka - 422003</p>
+                    </div>
+                    <div class="detail-item">
+                        <span class="section-label">Activities</span>
+                        <p><i class="fas fa-spa"></i> Yoga, Meditation & Welfare</p>
+                    </div>
+                </div>
+            </div>
+            <div class="action-bar">
+                <a href="https://www.google.com/maps/search/?api=1&query=Kushavarta+Kund+Trimbakeshwar4" target="_blank" class="btn-map"><i class="fas fa-directions"></i> Get Directions</a>
+                <a href="tel:02536451972" class="btn-call"><i class="fas fa-phone"></i> Call: 0253 645 1972</a>
+            </div>
+        </div>
+
+        <div class="premium-card">
+            <div class="card-header">
+                <h2>Anandpur Satsang Ashramam</h2>
+                <span class="rating-badge">⭐ 4.3 Rating</span>
+            </div>
+            <div class="card-content">
+                <span class="section-label">Satsang Center</span>
+                <p class="description">A peaceful destination in Shivaji Nagar known for its spiritual discourses (Satsang) and community gatherings. Ideal for those seeking mental peace and rejuvenation.</p>
+                
+                <div class="details-grid">
+                    <div class="detail-item">
+                        <span class="section-label">Address</span>
+                        <p><i class="fas fa-map-marker-alt"></i> Shivaji Nagar, Nashik - 422013</p>
+                    </div>
+                    <div class="detail-item">
+                        <span class="section-label">Timings</span>
+                        <p><i class="fas fa-sun"></i> Open until 12:00 PM</p>
+                    </div>
+                </div>
+            </div>
+            <div class="action-bar">
+                <a href="https://www.google.com/maps/search/?api=1&query=Kushavarta+Kund+Trimbakeshwar5" target="_blank" class="btn-map"><i class="fas fa-directions"></i> Get Directions</a>
+                <span style="color: #888; font-style: italic;">Shivaji Nagar Area</span>
+            </div>
+        </div>
+
+        <div class="premium-card">
+            <div class="card-header">
+                <h2>Radhakrishna Motumal Sindhi Ashram</h2>
+                <span class="rating-badge">⭐ 4.7 Rating</span>
+            </div>
+            <div class="card-content">
+                <span class="section-label">Lodging & Dharamshala</span>
+                <p class="description">A prominent religious lodging facility providing affordable and serene accommodation. Located in the heart of Panchavati, it is perfect for pilgrims visiting nearby temples and ghats.</p>
+                
+                <div class="details-grid">
+                    <div class="detail-item">
+                        <span class="section-label">Address</span>
+                        <p><i class="fas fa-map-marker-alt"></i> Opp. Manas Restaurant, Panchavati Karanja, Nashik - 422003</p>
+                    </div>
+                    <div class="detail-item">
+                        <span class="section-label">Timings</span>
+                        <p><i class="fas fa-moon"></i> Open until 12:00 AM</p>
+                    </div>
+                </div>
+            </div>
+            <div class="action-bar">
+                <a href="https://www.google.com/maps/search/Radhakrishna+Motumal+Sindhi+Ashram+Nashik" target="_blank" class="btn-map"><i class="fas fa-directions"></i> Get Directions</a>
+                <a href="tel:02532513511" class="btn-call"><i class="fas fa-phone"></i> Call: 0253 251 3511</a>
+            </div>
+        </div>
+
+        <div class="premium-card">
+            <div class="card-header">
+                <h2>Capuchin Ashram</h2>
+                <span class="rating-badge">⭐ 4.7 Rating</span>
+            </div>
+            <div class="card-content">
+                <span class="section-label">Religious Retreat</span>
+                <p class="description">Operated by the Franciscan Order, this ashram is a center for prayer, deep reflection, and community outreach. It offers a very quiet and disciplined environment for visitors.</p>
+                
+                <div class="details-grid">
+                    <div class="detail-item">
+                        <span class="section-label">Address</span>
+                        <p><i class="fas fa-map-marker-alt"></i> St. Joseph's Grounds, Near Kilbil, College Road, Nashik - 422005</p>
+                    </div>
+                    <div class="detail-item">
+                        <span class="section-label">Nature</span>
+                        <p><i class="fas fa-cross"></i> Christian Retreat & Prayer Center</p>
+                    </div>
+                </div>
+            </div>
+            <div class="action-bar">
+                <a href="https://www.google.com/maps/search/Capuchin+Ashram+Nashik" target="_blank" class="btn-map"><i class="fas fa-directions"></i> Get Directions</a>
+                <span style="color: #888; font-weight: 600;">Visit for Inquiry</span>
+            </div>
+        </div>
+
+        <div class="premium-card">
+            <div class="card-header">
+                <h2>KAILAS MATH TRUST NASIK</h2>
+                <span class="rating-badge">⭐ 4.3 Rating</span>
+            </div>
+            <div class="card-content">
+                <span class="section-label">Spiritual Institution</span>
+                <p class="description">Founded in 1974, this is a legendary charitable trust in Nashik. It promotes cultural and social welfare activities alongside being a revered place for spiritual stay.</p>
+                
+                <div class="details-grid">
+                    <div class="detail-item">
+                        <span class="section-label">Address</span>
+                        <p><i class="fas fa-map-marker-alt"></i> 4614, Peth Rd, Rajpal Colony, Panchavati - 422003</p>
+                    </div>
+                    <div class="detail-item">
+                        <span class="section-label">Legacy</span>
+                        <p><i class="fas fa-history"></i> Serving since 1974</p>
+                    </div>
+                </div>
+            </div>
+            <div class="action-bar">
+                <a href="https://www.google.com/maps/search/Kailas+Math+Trust+Nashik" target="_blank" class="btn-map"><i class="fas fa-directions"></i> Get Directions</a>
+                <a href="tel:02532510111" class="btn-call"><i class="fas fa-phone"></i> Call: 0253 251 0111</a>
+            </div>
+        </div>
+
+        <div class="premium-card">
+            <div class="card-header">
+                <h2>Shree Hans Yog Ashram</h2>
+                <span class="rating-badge">⭐ 4.7 Rating</span>
+            </div>
+            <div class="card-content">
+                <span class="section-label">Yoga & Meditation</span>
+                <p class="description">Operates under Manav Utthan Seva Samiti. This ashram is a major hub for yoga practice, meditation, and humanitarian outreach in the Dwarka/Tapovan area.</p>
+                
+                <div class="details-grid">
+                    <div class="detail-item">
+                        <span class="section-label">Address</span>
+                        <p><i class="fas fa-map-marker-alt"></i> Tapovan Rd, Near Laminozayan Bridge, Dwarka - 422003</p>
+                    </div>
+                    <div class="detail-item">
+                        <span class="section-label">Activities</span>
+                        <p><i class="fas fa-spa"></i> Yoga, Meditation & Welfare</p>
+                    </div>
+                </div>
+            </div>
+            <div class="action-bar">
+                <a href="https://www.google.com/maps/search/Shree+Hans+Yog+Ashram+Nashik" target="_blank" class="btn-map"><i class="fas fa-directions"></i> Get Directions</a>
+                <a href="tel:02536451972" class="btn-call"><i class="fas fa-phone"></i> Call: 0253 645 1972</a>
+            </div>
+        </div>
+
+        <div class="premium-card">
+            <div class="card-header">
+                <h2>Anandpur Satsang Ashramam</h2>
+                <span class="rating-badge">⭐ 4.3 Rating</span>
+            </div>
+            <div class="card-content">
+                <span class="section-label">Satsang Center</span>
+                <p class="description">A peaceful destination in Shivaji Nagar known for its spiritual discourses (Satsang) and community gatherings. Ideal for those seeking mental peace and rejuvenation.</p>
+                
+                <div class="details-grid">
+                    <div class="detail-item">
+                        <span class="section-label">Address</span>
+                        <p><i class="fas fa-map-marker-alt"></i> Shivaji Nagar, Nashik - 422013</p>
+                    </div>
+                    <div class="detail-item">
+                        <span class="section-label">Timings</span>
+                        <p><i class="fas fa-sun"></i> Open until 12:00 PM</p>
+                    </div>
+                </div>
+            </div>
+            <div class="action-bar">
+                <a href="https://www.google.com/maps/search/Anandpur+Satsang+Ashramam+Nashik" target="_blank" class="btn-map"><i class="fas fa-directions"></i> Get Directions</a>
+                <span style="color: #888; font-style: italic;">Shivaji Nagar Area</span>
+            </div>
+        </div>
+
+        <div class="premium-card">
+            <div class="card-header">
+                <h2>Bramhdarshan Ashram</h2>
+                <span class="rating-badge">⭐ 4.9 Rating</span>
+            </div>
+            <div class="card-content">
+                <span class="section-label">Spiritual Retreat & Learning</span>
+                <p class="description">Nestled near the sacred Panchali Parshuram Mandir in Trimbak. This ashram is a top-rated destination for pilgrims seeking meditation and learning near the revered Trimbakeshwar Temple.</p>
+                
+                <div class="details-grid">
+                    <div class="detail-item">
+                        <span class="section-label">Address</span>
+                        <p><i class="fas fa-map-marker-alt"></i> 94, Main Rd, Panch Aali, Trimbak - 422212</p>
+                    </div>
+                    <div class="detail-item">
+                        <span class="section-label">Timings</span>
+                        <p><i class="fas fa-clock"></i> Open until 1:11 PM</p>
+                    </div>
+                </div>
+            </div>
+            <div class="action-bar">
+                <a href="https://www.google.com/maps/search/Bramhdarshan+Ashram+Trimbak" target="_blank" class="btn-map"><i class="fas fa-directions"></i> Get Directions</a>
+                <a href="tel:09822858841" class="btn-call"><i class="fas fa-phone"></i> Call: 098228 58841</a>
+            </div>
+        </div>
+
+        <div class="premium-card">
+            <div class="card-header">
+                <h2>Shree Guru Karshni Ashram</h2>
+                <span class="rating-badge">⭐ 4.7 Rating</span>
+            </div>
+            <div class="card-content">
+                <span class="section-label">Meditation Center</span>
+                <p class="description">Located along the Trimbak Ring Road, this ashram is famous for its serene surroundings and devotional ambiance, providing peace and spiritual guidance to all seekers.</p>
+                
+                <div class="details-grid">
+                    <div class="detail-item">
+                        <span class="section-label">Address</span>
+                        <p><i class="fas fa-map-marker-alt"></i> Trimbak Ring Road, Gulve Wadi, Trimbak - 422212</p>
+                    </div>
+                    <div class="detail-item">
+                        <span class="section-label">Speciality</span>
+                        <p><i class="fas fa-om"></i> Traditional Indian Religious Practices</p>
+                    </div>
+                </div>
+            </div>
+            <div class="action-bar">
+                <a href="https://www.google.com/maps/search/Shree+Guru+Karshni+Ashram+Trimbak" target="_blank" class="btn-map"><i class="fas fa-directions"></i> Get Directions</a>
+                <span style="color: #888; font-style: italic;">Ring Road Location</span>
+            </div>
+        </div>
+
+        <div class="premium-card">
+            <div class="card-header">
+                <h2>RANJEET ASHRAM</h2>
+                <span class="rating-badge">⭐ 4.2 Rating</span>
+            </div>
+            <div class="card-content">
+                <span class="section-label">Advaita Meditation</span>
+                <p class="description">Focuses on teachings rooted in the Advaita (non-dualism) tradition. It provides a tranquil environment for those pursuing inner peace and self-realization.</p>
+                
+                <div class="details-grid">
+                    <div class="detail-item">
+                        <span class="section-label">Address</span>
+                        <p><i class="fas fa-map-marker-alt"></i> Datta Mandir Rd, Gayakhe Colony, Nashik - 422101</p>
+                    </div>
+                    <div class="detail-item">
+                        <span class="section-label">Timings</span>
+                        <p><i class="fas fa-sun"></i> Open until 9:30 AM</p>
+                    </div>
+                </div>
+            </div>
+            <div class="action-bar">
+                <a href="https://www.google.com/maps/search/Ranjeet+Ashram+Nashik" target="_blank" class="btn-map"><i class="fas fa-directions"></i> Get Directions</a>
+                <a href="#" class="btn-call"><i class="fas fa-globe"></i> Visit Website</a>
+            </div>
+        </div>
+
+        <div class="premium-card">
+            <div class="card-header">
+                <h2>Ramakrishna Vivekananda Sevashram</h2>
+                <span class="rating-badge">⭐ 4.7 Rating</span>
+            </div>
+            <div class="card-content">
+                <span class="section-label">Cultural & Devotional Hub</span>
+                <p class="description">Inspired by the ideals of Sri Ramakrishna and Swami Vivekananda. This center is a hub for cultural, educational, and devotional activities in the Satpur region.</p>
+                
+                <div class="details-grid">
+                    <div class="detail-item">
+                        <span class="section-label">Address</span>
+                        <p><i class="fas fa-map-marker-alt"></i> Kamgar Nagar Rd, Satpur Colony, Nashik - 422007</p>
+                    </div>
+                    <div class="detail-item">
+                        <span class="section-label">Ideal For</span>
+                        <p><i class="fas fa-university"></i> Education & Worship</p>
+                    </div>
+                </div>
+            </div>
+            <div class="action-bar">
+                <a href="https://www.google.com/maps/search/Ramakrishna+Vivekananda+Sevashram+Nashik" target="_blank" class="btn-map"><i class="fas fa-directions"></i> Get Directions</a>
+                <span style="color: #888;">Satpur Colony Area</span>
+            </div>
+        </div>
+
+        <div class="premium-card">
+            <div class="card-header">
+                <h2>Jalaram Bhavan</h2>
+                <span class="rating-badge">⭐ 4.8 Rating</span>
+            </div>
+            <div class="card-content">
+                <span class="section-label">Budget-Friendly Dharamshala</span>
+                <p class="description">Highly recognized for its cleanliness and safety. It offers simple yet comfortable pilgrim lodging, making it ideal for families visiting sacred sites in Panchavati.</p>
+                
+                <div class="details-grid">
+                    <div class="detail-item">
+                        <span class="section-label">Address</span>
+                        <p><i class="fas fa-map-marker-alt"></i> Near Panchavati Dental College, Panchavati - 422003</p>
+                    </div>
+                    <div class="detail-item">
+                        <span class="section-label">Timings</span>
+                        <p><i class="fas fa-clock"></i> Open until 8:30 PM</p>
+                    </div>
+                </div>
+            </div>
+            <div class="action-bar">
+                <a href="https://www.google.com/maps/search/Jalaram+Bhavan+Panchavati+Nashik" target="_blank" class="btn-map"><i class="fas fa-directions"></i> Get Directions</a>
+                <span style="color: #27ae60; font-weight: 600;"><i class="fas fa-check-circle"></i> Best for Families</span>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>

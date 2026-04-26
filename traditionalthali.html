@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Traditional Thali & Family Dining | Nashik Guide</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <meta charset="UTF-8">
+    <meta name="google" content="notranslate"> <link rel="stylesheet" href="style.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;600&display=swap');
+
+        :root {
+            --royal-red: #800000;
+            --gold: #d4af37;
+            --dark: #1a1a1a;
+            --bg: #fdfaf5;
+        }
+
+        body { font-family: 'Poppins', sans-serif; margin: 0; background: var(--bg); color: #333; }
+
+        /* Banner */
+        .thali-hero {
+            height: 45vh;
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1589301760014-d929f3979dbc?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover; background-position: center;
+            display: flex; align-items: center; justify-content: center; color: white; text-align: center;
+        }
+        .thali-hero h1 { font-family: 'Playfair Display', serif; font-size: 3.5rem; margin: 0; }
+        .thali-hero p { font-size: 1.2rem; letter-spacing: 2px; text-transform: uppercase; color: var(--gold); }
+
+        .container { max-width: 1100px; margin: -60px auto 60px; padding: 0 20px; }
+
+        /* Premium Thali Card */
+        .thali-card {
+            background: white; border-radius: 20px; display: flex; overflow: hidden;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1); margin-bottom: 40px; border-left: 6px solid var(--royal-red);
+        }
+
+        .card-img { width: 380px; min-height: 300px; background-size: cover; background-position: center; position: relative; }
+        .price-badge { position: absolute; bottom: 20px; left: 20px; background: rgba(0,0,0,0.8); color: var(--gold); padding: 5px 15px; border-radius: 5px; font-weight: bold; }
+
+        .card-content { padding: 35px; flex: 1; }
+        .card-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 15px; }
+        .card-header h2 { margin: 0; font-family: 'Playfair Display', serif; font-size: 1.8rem; color: var(--royal-red); }
+        
+        .rating-box { background: #27ae60; color: white; padding: 5px 12px; border-radius: 8px; font-weight: bold; display: flex; align-items: center; gap: 5px; }
+        .cuisine { color: var(--gold); font-weight: 600; text-transform: uppercase; font-size: 0.85rem; letter-spacing: 1px; }
+        
+        .address { font-size: 0.9rem; color: #777; margin: 15px 0; display: flex; align-items: center; gap: 8px; }
+        .description { line-height: 1.7; color: #555; margin-bottom: 25px; }
+
+        .info-row { display: flex; gap: 25px; margin-bottom: 25px; padding-top: 15px; border-top: 1px solid #eee; font-size: 0.9rem; }
+        .info-row span i { color: var(--royal-red); margin-right: 5px; }
+
+        .action-btns { display: flex; gap: 15px; }
+        .btn { padding: 12px 25px; border-radius: 10px; text-decoration: none; font-weight: 600; transition: 0.3s; display: flex; align-items: center; gap: 8px; }
+        .btn-map { background: var(--dark); color: white; }
+        .btn-call { border: 2px solid var(--royal-red); color: var(--royal-red); }
+        .btn:hover { transform: translateY(-3px); box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+
+        @media (max-width: 850px) {
+            .thali-card { flex-direction: column; }
+            .card-img { width: 100%; height: 250px; }
+            .thali-hero h1 { font-size: 2.2rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="lang-fab" onclick="toggleLangMenu()">
+        <i class="fas fa-globe"></i>
+    </div>
+
+    <div class="lang-menu" id="langMenu">
+        <div class="lang-grid">
+            <button onclick="changeLang('en')">English</button>
+            <button onclick="changeLang('hi')">हिंदी</button>
+            <button onclick="changeLang('mr')">मराठी</button>
+            <button onclick="changeLang('bn')">বাংলা</button>
+            <button onclick="changeLang('te')">తెలుగు</button>
+            <button onclick="changeLang('ta')">தமிழ்</button>
+            <button onclick="changeLang('gu')">ગુજરાતી</button>
+            <button onclick="changeLang('kn')">ಕನ್ನಡ</button>
+            <button onclick="changeLang('pa')">ਪੰਜਾਬੀ</button>
+            <button onclick="changeLang('ml')">മലയാളം</button>
+        </div>
+    </div>
+
+    <div id="google_translate_element"></div>
+
+    <script src="script.js"></script>
+    <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+
+    <header class="thali-hero">
+        <div>
+            <p>Authentic Flavors</p>
+            <h1>Traditional Thali Dining</h1>
+        </div>
+    </header>
+
+    <div class="container">
+        
+        <div class="thali-card">
+            <div class="card-img" style="background-image: url('https://lh3.googleusercontent.com/gps-cs-s/APNQkAGtSGgQqX-PaRamnLlHFXfMqvaK2EnEAjoZ6OKM7GnicrjPUUF0QtBGLuFHCLr_l441S7E4I5eSx2AcHnd-jqvWd10iN6HUCGzjDkPNnnuMeO7OPACyE1uwkHMw1jYNNRyNd__1=w143-h143-n-k-no');">
+                <div class="price-badge">₹200–400</div>
+            </div>
+            <div class="card-content">
+                <div class="card-header">
+                    <h2>Shree Rajbhog Thali</h2>
+                    <div class="rating-box">4.6 <i class="fas fa-star"></i></div>
+                </div>
+                <div class="cuisine">Rajasthani & Gujarati Restaurant</div>
+                <p class="address"><i class="fas fa-map-marker-alt"></i> Mumbai Naka, Matoshree Nagar, Nashik</p>
+                <p class="description">Celebrated for its traditional Rajasthani and Gujarati-style all-you-can-eat thali experience. Known for its vibrant ambiance and royal family dining.</p>
+                <div class="info-row">
+                    <span><i class="far fa-clock"></i> Opens 7:00 PM</span>
+                    <span><i class="fas fa-phone"></i> 090111 98765</span>
+                </div>
+                <div class="action-btns">
+                    <a href="#" class="btn btn-map"><i class="fas fa-location-arrow"></i> Directions</a>
+                    <a href="tel:09011198765" class="btn btn-call"><i class="fas fa-phone-alt"></i> Call</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="thali-card">
+            <div class="card-img" style="background-image: url('https://lh3.googleusercontent.com/grass-cs/ANxoTn1ytUj_2mQgOdvV1tJwtBp-TxsYCHLc8qke5GvkdzQzNCsXHcXFSlo0i-wxos6KrUyZamhmtadgSs52jD-vz1AjxPSHLlqVOfyXb8-rhhJCoXajBUMseQmUJ-mBZL0zt6ckhZRYTMIeO__S=w289-h312-n-k-no');">
+                <div class="price-badge">₹200–400</div>
+            </div>
+            <div class="card-content">
+                <div class="card-header">
+                    <h2>Shree Purohit Thali®</h2>
+                    <div class="rating-box">4.2 <i class="fas fa-star"></i></div>
+                </div>
+                <div class="cuisine">Gujarati Restaurant</div>
+                <p class="address"><i class="fas fa-map-marker-alt"></i> Nashik Road, near andha-shala bus stop</p>
+                <p class="description">Serving authentic Gujarati thali meals in a homely setting since 2016. Highly popular for its unlimited thalis and traditional hospitality.</p>
+                <div class="info-row">
+                    <span><i class="far fa-clock"></i> Opens 7:00 PM</span>
+                    <span><i class="fas fa-phone"></i> 0253 246 3407</span>
+                </div>
+                <div class="action-btns">
+                    <a href="#" class="btn btn-map">Directions</a>
+                    <a href="tel:02532463407" class="btn btn-call">Call</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="thali-card">
+            <div class="card-img" style="background-image: url('https://lh3.googleusercontent.com/grass-cs/ANxoTn2ZFpGmdmOkkBcAhfRtIS4whG96rzJcps6aMsuWm-ObNnSGnvvWHkdYOTHnvOtg8FscBwnSXXhfL5fp5xlk2iKG83uTa7ACJx2r1O6YvnIzt9tmGUl1Gb3it3H7ZBkSedvNv83R=w289-h312-n-k-no');">
+                <div class="price-badge">₹200–400</div>
+            </div>
+            <div class="card-content">
+                <div class="card-header">
+                    <h2>Rajasthani Rajwadi Thali</h2>
+                    <div class="rating-box">4.5 <i class="fas fa-star"></i></div>
+                </div>
+                <div class="cuisine">North Indian & Royal Thali</div>
+                <p class="address"><i class="fas fa-map-marker-alt"></i> Tidke Colony, near Ved Mandir, Nashik</p>
+                <p class="description">Offers a royal culinary spread blending the flavors of Rajasthan, Gujarat, and Maharashtra. Famous for its lavish Rajwadi style dining.</p>
+                <div class="info-row">
+                    <span><i class="far fa-clock"></i> Opens 7:00 PM</span>
+                </div>
+                <div class="action-btns">
+                    <a href="#" class="btn btn-map">Directions</a>
+                    <a href="tel:08767369276" class="btn btn-call">Call</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="thali-card">
+            <div class="card-img" style="background-image: url('https://lh3.googleusercontent.com/gps-cs-s/APNQkAHS4f7ANE_Olz9WhrkvgcyJevxY9LCbGxRQrLvpyQrupr7je10EroD_hcxFtrNTCSg0mGmFSmN1bohgwTNwOGyiEccIgd8NLdDRi1RX2N5tZGbSNlxP54y59nSrLTkUA0du8Fs=w143-h143-n-k-no');">
+                <div class="price-badge">₹200–400</div>
+            </div>
+            <div class="card-content">
+                <div class="card-header">
+                    <h2>THAKURJI - Gujarati Thali</h2>
+                    <div class="rating-box" style="background:#888;">3.8 <i class="fas fa-star"></i></div>
+                </div>
+                <div class="cuisine">Authentic Gujarati Restaurant</div>
+                <p class="address"><i class="fas fa-map-marker-alt"></i> College Rd, Krishi Nagar, Nashik</p>
+                <p class="description">A well-known family-friendly eatery serving home-style Gujarati flavors in an authentic thali format at moderate prices.</p>
+                <div class="info-row">
+                    <span><i class="fas fa-check-circle" style="color:green"></i> Open until 11:00 PM</span>
+                </div>
+                <div class="action-btns">
+                    <a href="#" class="btn btn-map">Directions</a>
+                    <a href="tel:07303767676" class="btn btn-call">Call</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="thali-card">
+            <div class="card-img" style="background-image: url('data:image/jpeg;base64,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');">
+                <div class="price-badge">₹200–400</div>
+            </div>
+            <div class="card-content">
+                <div class="card-header">
+                    <h2>Veg Aroma</h2>
+                    <div class="rating-box">4.0 <i class="fas fa-star"></i></div>
+                </div>
+                <div class="cuisine">Pure Veg Multi-Cuisine</div>
+                <p class="address"><i class="fas fa-map-marker-alt"></i> Gangapur Rd, Anandvalli, Nashik</p>
+                <p class="description">Known for rustic charm and garden-style seating. Offers a diverse range of Indian and Asian-inspired vegetarian thalis and dishes.</p>
+                <div class="info-row">
+                    <span><i class="fas fa-check-circle" style="color:green"></i> Open until 11:30 PM</span>
+                </div>
+                <div class="action-btns">
+                    <a href="#" class="btn btn-map">Directions</a>
+                    <a href="tel:08380032373" class="btn btn-call">Call</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="thali-card">
+            <div class="card-img" style="background-image: url('https://lh3.googleusercontent.com/gps-cs-s/APNQkAHBg0jso0W9NY80-DuOZlFXBE4ApyPO5p2sF6R8APxFAWGxu-XjFjIkIZWDcTTSjKF8nqcO1zCAFsd5IAs7vc1s-ldZ1QuNOv_qdq-CwII8xRBUSNj6NSZIWhWYDsiTIjyYJSAK2AtttvU=w143-h143-n-k-no');">
+                <div class="price-badge">₹200–400</div>
+            </div>
+            <div class="card-content">
+                <div class="card-header">
+                    <h2>Udupi Tadka Gokul</h2>
+                    <div class="rating-box">4.2 <i class="fas fa-star"></i></div>
+                </div>
+                <div class="cuisine">South Indian & Punjabi</div>
+                <p class="address"><i class="fas fa-map-marker-alt"></i> Mumbai Naka, Renuka Nagar, Nashik</p>
+                <p class="description">Celebrated for diverse Indian cuisine and comfortable ambiance. Offers a perfect blend of South and North Indian dishes.</p>
+                <div class="info-row">
+                    <span><i class="fas fa-check-circle" style="color:green"></i> Open until 11:00 PM</span>
+                </div>
+                <div class="action-btns">
+                    <a href="#" class="btn btn-map">Directions</a>
+                    <a href="tel:09405768388" class="btn btn-call">Call</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="thali-card">
+            <div class="card-img" style="background-image: url('https://lh3.googleusercontent.com/gps-cs-s/APNQkAEOKsbYIwWg7bDVrgn0mQqaPGGXAO03YJdgkyrdyt7bDail9vMgDf3aM6DerFKUXKFNovR1U2YdLWef5maf5Aky1G7vUFkp9EgXGb3sH3XpXmE6LfP8Gv8XwmrTrUYh9wwIgbE=w143-h143-n-k-no');">
+                <div class="price-badge">₹200–400</div>
+            </div>
+            <div class="card-content">
+                <div class="card-header">
+                    <h2>Hotel Peshwa</h2>
+                    <div class="rating-box" style="background:#888;">3.7 <i class="fas fa-star"></i></div>
+                </div>
+                <div class="cuisine">Marathi & Mughlai Restaurant</div>
+                <p class="address"><i class="fas fa-map-marker-alt"></i> Panchavati, Mumbai–Agra Highway</p>
+                <p class="description">A relaxed, family-friendly environment featuring a mix of Maharashtrian, North Indian, and Mughlai cuisines.</p>
+                <div class="info-row">
+                    <span><i class="fas fa-check-circle" style="color:green"></i> Open until 11:00 PM</span>
+                </div>
+                <div class="action-btns">
+                    <a href="#" class="btn btn-map">Directions</a>
+                    <a href="tel:09823277717" class="btn btn-call">Call Now</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="thali-card">
+            <div class="card-img" style="background-image: url('https://lh3.googleusercontent.com/grass-cs/ANxoTn3z223VrdIt9uvdFCzIYhF-64LL3abiC9iHMsrHhbTQvwv55_cOEYqcIG_2pjWqIHtrq8IPY3dVAs0iMRphuHwvcQuXhZXGY5-Q6FY98kVFFl91OCTqVBQpIx8ilpMRaI4XTyzk8pbb5tTv=w145-h156-n-k-no');">
+                <div class="price-badge">₹400–600</div>
+            </div>
+            <div class="card-content">
+                <div class="card-header">
+                    <h2>Nashik Lunch Home</h2>
+                    <div class="rating-box">4.2 <i class="fas fa-star"></i></div>
+                </div>
+                <div class="cuisine">Malvani & Kolhapuri Special</div>
+                <p class="address"><i class="fas fa-map-marker-alt"></i> Pipeline road, Anandvalli, Nashik</p>
+                <p class="description">Famous for rich non-vegetarian and seafood-focused Maharashtrian cuisine. The go-to spot for authentic Malvani dishes.</p>
+                <div class="info-row">
+                    <span><i class="fas fa-check-circle" style="color:green"></i> Open until 11:00 PM</span>
+                </div>
+                <div class="action-btns">
+                    <a href="#" class="btn btn-map">Directions</a>
+                    <a href="tel:07875033033" class="btn btn-call">Call</a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>

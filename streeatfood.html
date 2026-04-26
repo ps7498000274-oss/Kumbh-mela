@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Street Food Elite | Nashik Luxury Guide</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <meta charset="UTF-8">
+    <meta name="google" content="notranslate"> <link rel="stylesheet" href="style.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Syncopate:wght@700&family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap');
+
+        :root {
+            --neon-orange: #ff9f43;
+            --neon-pink: #ff4dff;
+            --royal-black: #080a0c;
+            --glass-white: rgba(255, 255, 255, 0.05);
+            --border-glass: rgba(255, 255, 255, 0.1);
+            --text-silver: #cbd5e1;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background-color: var(--royal-black);
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            color: white;
+            overflow-x: hidden;
+        }
+
+        /* --- Animated Luxury Background --- */
+        .bg-glow {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: radial-gradient(circle at 10% 20%, rgba(255, 159, 67, 0.05) 0%, transparent 50%),
+                        radial-gradient(circle at 90% 80%, rgba(255, 77, 255, 0.05) 0%, transparent 50%);
+            z-index: -1;
+        }
+
+        /* --- Header Section --- */
+        header {
+            height: 60vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: linear-gradient(to bottom, rgba(8, 10, 12, 0) 0%, var(--royal-black) 100%),
+                        url('https://images.unsplash.com/photo-1606491956689-2ea866880c84?auto=format&fit=crop&w=1200&q=80');
+            background-size: cover;
+            background-position: center;
+            border-bottom: 1px solid var(--border-glass);
+        }
+
+        header h1 {
+            font-family: 'Syncopate', sans-serif;
+            font-size: clamp(2rem, 10vw, 5rem);
+            text-transform: uppercase;
+            letter-spacing: 10px;
+            background: linear-gradient(to right, var(--neon-orange), var(--neon-pink));
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 10px;
+        }
+
+        header p {
+            font-size: 1rem;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            opacity: 0.6;
+            font-weight: 300;
+        }
+
+        /* --- Main Content --- */
+        .container {
+            max-width: 1300px;
+            margin: -100px auto 100px;
+            padding: 0 20px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+            gap: 40px;
+        }
+
+        /* --- Ultra Pro Max Card --- */
+        .card {
+            background: var(--glass-white);
+            backdrop-filter: blur(15px);
+            border: 1px solid var(--border-glass);
+            border-radius: 40px;
+            padding: 40px;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+
+        .card::before {
+            content: "";
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(135deg, rgba(255, 159, 67, 0.1), transparent);
+            opacity: 0;
+            transition: 0.5s;
+        }
+
+        .card:hover {
+            transform: translateY(-20px) scale(1.02);
+            border-color: var(--neon-orange);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5), 0 0 20px rgba(255, 159, 67, 0.1);
+        }
+
+        .card:hover::before { opacity: 1; }
+
+        .rating-chip {
+            position: absolute;
+            top: 30px; right: 30px;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-weight: 800;
+            color: var(--neon-orange);
+            border: 1px solid rgba(255, 159, 67, 0.3);
+            font-size: 0.9rem;
+        }
+
+        .category-tag {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--neon-pink);
+            font-weight: 800;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .card h2 {
+            font-size: 1.8rem;
+            font-weight: 800;
+            margin-bottom: 15px;
+            letter-spacing: -1px;
+            color: #fff;
+        }
+
+        .loc {
+            font-size: 0.85rem;
+            color: var(--text-silver);
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            opacity: 0.7;
+        }
+
+        .desc {
+            font-size: 0.95rem;
+            line-height: 1.8;
+            color: var(--text-silver);
+            margin-bottom: 30px;
+            font-weight: 300;
+        }
+
+        /* --- Footer Actions --- */
+        .card-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid var(--border-glass);
+            padding-top: 25px;
+        }
+
+        .status {
+            font-size: 0.8rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .status i { font-size: 0.6rem; }
+        .open { color: #2ecc71; }
+        .closed { color: #ff4757; }
+
+        .btn-wrap { display: flex; gap: 15px; }
+
+        .action-btn {
+            width: 50px;
+            height: 50px;
+            border-radius: 18px;
+            background: rgba(255, 255, 255, 0.05);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            border: 1px solid var(--border-glass);
+            transition: 0.3s;
+        }
+
+        .action-btn:hover {
+            background: white;
+            color: var(--royal-black);
+            transform: translateY(-5px);
+        }
+
+        .action-btn.web {
+            width: auto;
+            padding: 0 20px;
+            font-size: 0.8rem;
+            font-weight: 800;
+            text-transform: uppercase;
+        }
+
+        /* --- Special Highlights --- */
+        .pro-label {
+            background: linear-gradient(to right, var(--neon-orange), var(--neon-pink));
+            color: white;
+            padding: 4px 10px;
+            border-radius: 5px;
+            font-size: 0.6rem;
+            vertical-align: middle;
+            margin-left: 10px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .grid { grid-template-columns: 1fr; }
+            header h1 { font-size: 2.5rem; letter-spacing: 5px; }
+            .container { margin-top: -50px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="lang-fab" onclick="toggleLangMenu()">
+        <i class="fas fa-globe"></i>
+    </div>
+
+    <div class="lang-menu" id="langMenu">
+        <div class="lang-grid">
+            <button onclick="changeLang('en')">English</button>
+            <button onclick="changeLang('hi')">हिंदी</button>
+            <button onclick="changeLang('mr')">मराठी</button>
+            <button onclick="changeLang('bn')">বাংলা</button>
+            <button onclick="changeLang('te')">తెలుగు</button>
+            <button onclick="changeLang('ta')">தமிழ்</button>
+            <button onclick="changeLang('gu')">ગુજરાતી</button>
+            <button onclick="changeLang('kn')">ಕನ್ನಡ</button>
+            <button onclick="changeLang('pa')">ਪੰਜਾਬੀ</button>
+            <button onclick="changeLang('ml')">മലയാളം</button>
+        </div>
+    </div>
+
+    <div id="google_translate_element"></div>
+
+    <script src="script.js"></script>
+    <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+
+    <div class="bg-glow"></div>
+
+    <header>
+        <p>Vibrant & Authentic</p>
+        <h1>STREET CULTURE</h1>
+    </header>
+
+    <div class="container">
+        <div class="grid">
+
+            <div class="card">
+                <div class="rating-chip">4.5 ★</div>
+                <span class="category-tag">Panipuri & Chaat</span>
+                <h2>Sadguru Chat Center</h2>
+                <div class="loc"><i class="fas fa-map-marker-alt"></i> Canada Corner, Nashik</div>
+                <p class="desc">A long-standing icon on College Road. Known for blending traditional Indian flavors with quick-service convenience. A favorite for consistent quality over many years.</p>
+                <div class="card-footer">
+                    <div class="status open"><i class="fas fa-circle"></i> Open until 10 PM</div>
+                    <div class="btn-wrap">
+                        <a href="tel:09011221923" class="action-btn"><i class="fas fa-phone"></i></a>
+                        <a href="#" class="action-btn"><i class="fas fa-location-arrow"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="rating-chip">4.8 ★</div>
+                <span class="category-tag">Modern Cafe</span>
+                <h2>Chaat Puchka Nashik</h2>
+                <div class="loc"><i class="fas fa-map-marker-alt"></i> Pathardi Phata, Nashik</div>
+                <p class="desc">Experience a vibrant selection of Indian street foods in a casual dining atmosphere. Authentic tastes served in a relaxed, family-friendly setting.</p>
+                <div class="card-footer">
+                    <div class="status open"><i class="fas fa-circle"></i> Open until 10:30 PM</div>
+                    <div class="btn-wrap">
+                        <a href="#" class="action-btn web">Website</a>
+                        <a href="tel:08982344405" class="action-btn"><i class="fas fa-phone"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card" style="border: 1px solid var(--neon-pink);">
+                <div class="rating-chip" style="background: var(--neon-pink); color: white;">5.0 ★</div>
+                <span class="category-tag">Premium Restaurant</span>
+                <h2>The Chaat Café <span class="pro-label">TOP RATED</span></h2>
+                <div class="loc"><i class="fas fa-map-marker-alt"></i> Rane Nagar, Nashik</div>
+                <p class="desc">Blends traditional flavors with modern snacks. A vibrant quick-service eatery perfect for those seeking affordable yet high-end flavorful bites.</p>
+                <div class="card-footer">
+                    <div class="status open"><i class="fas fa-circle"></i> Open until 10:30 PM</div>
+                    <div class="btn-wrap">
+                        <a href="#" class="action-btn web">Visit Site</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="rating-chip">4.3 ★</div>
+                <span class="category-tag">Breakfast • ₹1–200</span>
+                <h2>Dattaguru Vadapav</h2>
+                <div class="loc"><i class="fas fa-map-marker-alt"></i> Pandit Colony, Nashik</div>
+                <p class="desc">Specializing in Maharashtra’s iconic Vada Pav. Earned a loyal following for its authentic flavor that appeals to students and travelers alike.</p>
+                <div class="card-footer">
+                    <div class="status open"><i class="fas fa-circle"></i> Open until 9:30 PM</div>
+                    <div class="btn-wrap">
+                        <a href="tel:09604554993" class="action-btn"><i class="fas fa-phone"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="rating-chip">4.2 ★</div>
+                <span class="category-tag">Fast Food • ₹1–200</span>
+                <h2>Om Sai Ram Jumbo</h2>
+                <div class="loc"><i class="fas fa-map-marker-alt"></i> Pawan Nagar, Nashik</div>
+                <p class="desc">Recognized for serving one of the city's most flavorful and generously sized jumbo Vada Pavs. Bold spices and consistent quality.</p>
+                <div class="card-footer">
+                    <div class="status open"><i class="fas fa-circle"></i> Open until 10 PM</div>
+                    <div class="btn-wrap">
+                        <a href="tel:09834991320" class="action-btn"><i class="fas fa-phone"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="rating-chip">4.5 ★</div>
+                <span class="category-tag">Food Court</span>
+                <h2>Krushna Vadapav</h2>
+                <div class="loc"><i class="fas fa-map-marker-alt"></i> Pandit Colony, Nashik</div>
+                <p class="desc">A popular neighborhood stop for fresh and flavorful snacks. Known for their spiced potato fritters and fried accompaniments.</p>
+                <div class="card-footer">
+                    <div class="status open"><i class="fas fa-circle"></i> Open until 9:30 PM</div>
+                    <div class="btn-wrap">
+                        <a href="tel:08999865376" class="action-btn"><i class="fas fa-phone"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="rating-chip">4.2 ★</div>
+                <span class="category-tag">Family Restaurant</span>
+                <h2>Karan's Khau Galli</h2>
+                <div class="loc"><i class="fas fa-map-marker-alt"></i> Amrutdham, Nashik</div>
+                <p class="desc">A lively eatery cluster reflecting Nashik's urban food culture. Draws massive student crowds for its affordable variety and lively ambiance.</p>
+                <div class="card-footer">
+                    <div class="status open"><i class="fas fa-circle"></i> Open until 11 PM</div>
+                    <div class="btn-wrap">
+                        <a href="tel:08554999958" class="action-btn"><i class="fas fa-phone"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="rating-chip">4.2 ★</div>
+                <span class="category-tag">Breakfast & Snacks</span>
+                <h2>Traffic Jam Corner</h2>
+                <div class="loc"><i class="fas fa-map-marker-alt"></i> Mahatma Nagar, Nashik</div>
+                <p class="desc">Earning a loyal following for fresh Indian street-food classics like Poha, Samosa, Kachori, and Vada Pav at affordable prices.</p>
+                <div class="card-footer">
+                    <div class="status closed"><i class="fas fa-circle"></i> Closed at 8 PM</div>
+                    <div class="btn-wrap">
+                        <a href="tel:07776870939" class="action-btn"><i class="fas fa-phone"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="rating-chip">4.2 ★</div>
+                <span class="category-tag">Satpur Special</span>
+                <h2>Jugad Street Food</h2>
+                <div class="loc"><i class="fas fa-map-marker-alt"></i> Satpur Colony, Nashik</div>
+                <p class="desc">Serving fast, flavorful Indian snacks that appeal to both locals and visitors seeking authentic regional tastes in an informal setting.</p>
+                <div class="card-footer">
+                    <div class="status open"><i class="fas fa-circle"></i> Open Now</div>
+                    <div class="btn-wrap">
+                        <a href="tel:09850513914" class="action-btn"><i class="fas fa-phone"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card" style="border: 1px solid var(--neon-orange);">
+                <div class="rating-chip">4.7 ★</div>
+                <span class="category-tag">Premium Sweets & Snacks</span>
+                <h2>Haldiram's</h2>
+                <div class="loc"><i class="fas fa-map-marker-alt"></i> Mumbai Naka, Nashik</div>
+                <p class="desc">The legendary chain known for traditional snacks and multi-cuisine dining. A family-friendly destination near Kalika Mata Mandir.</p>
+                <div class="card-footer">
+                    <div class="status open" style="color: var(--neon-orange);"><i class="fas fa-circle"></i> Open until 2 AM</div>
+                    <div class="btn-wrap">
+                        <a href="#" class="action-btn web">Menu</a>
+                        <a href="tel:07030000146" class="action-btn"><i class="fas fa-phone"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="rating-chip">4.9 ★</div>
+                <span class="category-tag">Digital Food Court</span>
+                <h2>EatSure Food Court</h2>
+                <div class="loc"><i class="fas fa-map-marker-alt"></i> Thatte Nagar, Nashik</div>
+                <p class="desc">A contemporary multi-brand dining destination aggregating multiple popular brands under one roof for both dine-in and delivery.</p>
+                <div class="card-footer">
+                    <div class="status open"><i class="fas fa-circle"></i> Open until 11 PM</div>
+                    <div class="btn-wrap">
+                        <a href="#" class="action-btn web">Order Now</a>
+                        <a href="tel:07304047007" class="action-btn"><i class="fas fa-phone"></i></a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+</html>

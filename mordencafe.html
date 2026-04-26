@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern Cafes | Nashik Elite Coffee Guide</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <meta charset="UTF-8">
+    <meta name="google" content="notranslate"> <link rel="stylesheet" href="style.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Marcellus&family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap');
+
+        :root {
+            --cafe-gold: #c5a059;
+            --espresso-dark: #1a1412;
+            --cream: #fdfaf7;
+            --glass: rgba(255, 255, 255, 0.03);
+            --border: rgba(197, 160, 89, 0.2);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; transition: all 0.5s cubic-bezier(0.2, 1, 0.3, 1); }
+
+        body {
+            background-color: var(--espresso-dark);
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            color: var(--cream);
+            overflow-x: hidden;
+        }
+
+        /* --- Luxury Background Animation --- */
+        .bg-elements {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: radial-gradient(circle at 0% 0%, #2c1f1a 0%, transparent 40%),
+                        radial-gradient(circle at 100% 100%, #2c1f1a 0%, transparent 40%);
+            z-index: -1;
+        }
+
+        /* --- Ultra Pro Max Header --- */
+        header {
+            height: 70vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: linear-gradient(to bottom, rgba(26, 20, 18, 0.2), var(--espresso-dark)),
+                        url('https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=1500&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        header h1 {
+            font-family: 'Marcellus', serif;
+            font-size: clamp(3rem, 12vw, 6rem);
+            color: var(--cafe-gold);
+            text-transform: uppercase;
+            letter-spacing: 15px;
+            margin-bottom: 10px;
+            filter: drop-shadow(0 0 20px rgba(197, 160, 89, 0.3));
+        }
+
+        header p {
+            font-size: 1rem;
+            letter-spacing: 6px;
+            text-transform: uppercase;
+            opacity: 0.7;
+        }
+
+        /* --- Container & Grid --- */
+        .container {
+            max-width: 1400px;
+            margin: -120px auto 100px;
+            padding: 0 30px;
+        }
+
+        .cafe-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+            gap: 50px;
+        }
+
+        /* --- Luxury Cafe Card --- */
+        .cafe-card {
+            background: var(--glass);
+            backdrop-filter: blur(25px);
+            border: 1px solid var(--border);
+            border-radius: 50px 10px 50px 10px;
+            padding: 45px;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .cafe-card:hover {
+            transform: translateY(-20px);
+            background: rgba(197, 160, 89, 0.05);
+            border-color: var(--cafe-gold);
+            box-shadow: 0 40px 100px rgba(0,0,0,0.5);
+        }
+
+        .rating-box {
+            position: absolute;
+            top: -20px;
+            right: 40px;
+            background: var(--cafe-gold);
+            color: var(--espresso-dark);
+            padding: 10px 20px;
+            border-radius: 15px;
+            font-weight: 900;
+            font-size: 1.1rem;
+            box-shadow: 0 10px 20px rgba(197, 160, 89, 0.4);
+        }
+
+        .cafe-tag {
+            color: var(--cafe-gold);
+            font-weight: 700;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .cafe-card h2 {
+            font-family: 'Marcellus', serif;
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+            color: #fff;
+            line-height: 1.2;
+        }
+
+        .info-row {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 0.9rem;
+            color: #a0a0a0;
+            margin-bottom: 15px;
+        }
+
+        .info-row i { color: var(--cafe-gold); width: 20px; }
+
+        .cafe-desc {
+            font-size: 1rem;
+            line-height: 1.8;
+            color: #d1d1d1;
+            margin: 25px 0;
+            font-weight: 300;
+            flex-grow: 1;
+        }
+
+        /* --- Action Buttons --- */
+        .footer-actions {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 30px;
+            border-top: 1px solid var(--border);
+        }
+
+        .status-pill {
+            font-size: 0.8rem;
+            font-weight: 700;
+            padding: 6px 15px;
+            border-radius: 50px;
+            background: rgba(255,255,255,0.05);
+        }
+
+        .status-pill.open { color: #2ecc71; border: 1px solid rgba(46, 204, 113, 0.3); }
+        .status-pill.closed { color: #e74c3c; border: 1px solid rgba(231, 76, 60, 0.3); }
+
+        .btn-group { display: flex; gap: 15px; }
+
+        .icon-btn {
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            background: white;
+            color: var(--espresso-dark);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            font-size: 1.2rem;
+        }
+
+        .icon-btn:hover {
+            background: var(--cafe-gold);
+            color: white;
+            transform: scale(1.1) rotate(15deg);
+        }
+
+        .web-btn {
+            padding: 0 25px;
+            height: 55px;
+            border-radius: 30px;
+            border: 1px solid var(--cafe-gold);
+            color: var(--cafe-gold);
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+        }
+
+        .web-btn:hover { background: var(--cafe-gold); color: white; }
+
+        /* Responsive UI */
+        @media (max-width: 900px) {
+            .cafe-grid { grid-template-columns: 1fr; }
+            header h1 { font-size: 3rem; letter-spacing: 8px; }
+            .cafe-card { padding: 35px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="lang-fab" onclick="toggleLangMenu()">
+        <i class="fas fa-globe"></i>
+    </div>
+
+    <div class="lang-menu" id="langMenu">
+        <div class="lang-grid">
+            <button onclick="changeLang('en')">English</button>
+            <button onclick="changeLang('hi')">हिंदी</button>
+            <button onclick="changeLang('mr')">मराठी</button>
+            <button onclick="changeLang('bn')">বাংলা</button>
+            <button onclick="changeLang('te')">తెలుగు</button>
+            <button onclick="changeLang('ta')">தமிழ்</button>
+            <button onclick="changeLang('gu')">ગુજરાતી</button>
+            <button onclick="changeLang('kn')">ಕನ್ನಡ</button>
+            <button onclick="changeLang('pa')">ਪੰਜਾਬੀ</button>
+            <button onclick="changeLang('ml')">മലയാളം</button>
+        </div>
+    </div>
+
+    <div id="google_translate_element"></div>
+
+    <script src="script.js"></script>
+    <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+    <div class="bg-elements"></div>
+
+    <header>
+        <p>Nashik's Finest Roasts</p>
+        <h1>MODERN CAFES</h1>
+    </header>
+
+    <div class="container">
+        <div class="cafe-grid">
+
+            <div class="cafe-card">
+                <div class="rating-box">4.4 ★</div>
+                <span class="cafe-tag">Speciality Coffee • ₹200–400</span>
+                <h2>Pilgrim Coffee House</h2>
+                <div class="info-row"><i class="fas fa-map-marker-alt"></i> Gangapur Rd, Nashik</div>
+                <div class="info-row"><i class="fas fa-clock"></i> Open until 11:00 PM</div>
+                <p class="cafe-desc">A specialty café celebrated for its artisanal coffee, cozy interiors, and creative food pairings. One of the city’s most recommended spots for coffee enthusiasts and brunch lovers.</p>
+                <div class="footer-actions">
+                    <div class="status-pill open">ACTIVE NOW</div>
+                    <div class="btn-group">
+                        <a href="#" class="web-btn">Website</a>
+                        <a href="tel:08459839568" class="icon-btn"><i class="fas fa-phone"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="cafe-card">
+                <div class="rating-box">4.5 ★</div>
+                <span class="cafe-tag">Rooftop Bistro • ₹200–400</span>
+                <h2>Charlie’s Deck</h2>
+                <div class="info-row"><i class="fas fa-map-marker-alt"></i> Samartha Nagar, Nashik</div>
+                <div class="info-row"><i class="fas fa-clock"></i> Open until 11:00 PM</div>
+                <p class="cafe-desc">Known for its elegant urban vibe and scenic city views. It offers a mix of comfort dining and quality coffee, making it a popular hangout for global bites.</p>
+                <div class="footer-actions">
+                    <div class="status-pill open">SIT & VIEW</div>
+                    <div class="btn-group">
+                        <a href="tel:07775955509" class="icon-btn"><i class="fas fa-phone"></i></a>
+                        <a href="#" class="icon-btn"><i class="fas fa-location-arrow"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="cafe-card">
+                <div class="rating-box">4.8 ★</div>
+                <span class="cafe-tag">Mall Experience • Artisan</span>
+                <h2>Emporio Coffee Lounge</h2>
+                <div class="info-row"><i class="fas fa-map-marker-alt"></i> City Center Mall, Nashik</div>
+                <div class="info-row"><i class="fas fa-clock"></i> Open until 10:30 PM</div>
+                <p class="cafe-desc">A premium vegetarian café inside CCM. Established in 2022, it's a popular hangout for families and coffee lovers seeking artisan beverages and sweet café fare.</p>
+                <div class="footer-actions">
+                    <div class="status-pill open">OPEN AT MALL</div>
+                    <div class="btn-group">
+                        <a href="tel:08482816555" class="icon-btn"><i class="fas fa-phone"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="cafe-card">
+                <div class="rating-box">4.6 ★</div>
+                <span class="cafe-tag">Bistro • College Rd • ₹200–400</span>
+                <h2>The Breakfast Story</h2>
+                <div class="info-row"><i class="fas fa-map-marker-alt"></i> Thatte Nagar, Nashik</div>
+                <div class="info-row"><i class="fas fa-clock"></i> Open until 9:00 PM</div>
+                <p class="cafe-desc">Known for its hearty breakfast offerings and refined dining experience. A cozy yet sophisticated spot located opposite KFC on College Road.</p>
+                <div class="footer-actions">
+                    <div class="status-pill open">BRUNCH SPECIAL</div>
+                    <div class="btn-group">
+                        <a href="tel:09767363709" class="icon-btn"><i class="fas fa-phone"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="cafe-card">
+                <div class="rating-box">4.4 ★</div>
+                <span class="cafe-tag">Youthful Hangout • ₹1–200</span>
+                <h2>Cafe Panchayat</h2>
+                <div class="info-row"><i class="fas fa-map-marker-alt"></i> Patil Lane, College Rd</div>
+                <div class="info-row"><i class="fas fa-clock"></i> Open until 10:30 PM</div>
+                <p class="cafe-desc">Recognized for its legendary thick cold coffee and light snacks. A popular youthful setting established in 2017 for local college students.</p>
+                <div class="footer-actions">
+                    <div class="status-pill open">BUDGET ELITE</div>
+                    <div class="btn-group">
+                        <a href="tel:08888008368" class="icon-btn"><i class="fas fa-phone"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="cafe-card">
+                <div class="rating-box">4.4 ★</div>
+                <span class="cafe-tag">Pet Friendly • Italian • ₹200–400</span>
+                <h2>D’mora Cafe & Bistro</h2>
+                <div class="info-row"><i class="fas fa-map-marker-alt"></i> Canada Corner, Nashik</div>
+                <div class="info-row"><i class="fas fa-clock"></i> Open until 9:00 PM</div>
+                <p class="cafe-desc">A cozy, pet-friendly spot known for its Italian-inspired vegetarian fare. A favorite for families seeking a friendly and affordable dining experience.</p>
+                <div class="footer-actions">
+                    <div class="status-pill open">PETS WELCOME</div>
+                    <div class="btn-group">
+                        <a href="#" class="web-btn">Website</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="cafe-card">
+                <div class="rating-box">4.2 ★</div>
+                <span class="cafe-tag">Bakery & Cafe • ₹200–400</span>
+                <h2>Luscious Layers</h2>
+                <div class="info-row"><i class="fas fa-map-marker-alt"></i> College Rd, Nashik</div>
+                <div class="info-row"><i class="fas fa-clock"></i> Open until 11:00 PM</div>
+                <p class="cafe-desc">A vegetarian bakery and café known for fresh cakes, pastries, and savory dishes in a beautifully designed setting.</p>
+                <div class="footer-actions">
+                    <div class="status-pill open">DESSERT ELITE</div>
+                    <div class="btn-group">
+                        <a href="tel:07722082092" class="icon-btn"><i class="fas fa-phone"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="cafe-card">
+                <div class="rating-box">4.0 ★</div>
+                <span class="cafe-tag">Aesthetic • ₹200–400</span>
+                <h2>Four Lost Cats</h2>
+                <div class="info-row"><i class="fas fa-map-marker-alt"></i> Gangapur Rd, Nashik</div>
+                <div class="info-row"><i class="fas fa-clock"></i> Open until 11:00 PM</div>
+                <p class="cafe-desc">Known for its playful cat-inspired aesthetic and comfort food. It blends modern café vibes with an inviting ambiance for travelers.</p>
+                <div class="footer-actions">
+                    <div class="status-pill open">ARTISTIC VIBE</div>
+                    <div class="btn-group">
+                        <a href="#" class="web-btn">Website</a>
+                        <a href="tel:02534035695" class="icon-btn"><i class="fas fa-phone"></i></a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+</html>
