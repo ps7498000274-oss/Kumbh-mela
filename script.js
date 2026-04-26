@@ -274,142 +274,68 @@ document.querySelectorAll('input[name="msg-type"]').forEach(radio => {
 });
 
 /* language section */
-// 1. Language Menu Toggle
-function toggleLangMenu() {
-    const menu = document.getElementById('langMenu');
-    if (menu.style.display === 'block') {
-        menu.style.display = 'none';
-    } else {
-        menu.style.display = 'block';
-    }
-}
+/* ============================================================
+   LANGUAGE & GOOGLE TRANSLATE LOGIC (STABLE VERSION)
+   ============================================================ */
 
-// 2. Change Language Function
-function changeLang(langCode) {
-    const select = document.querySelector('.goog-te-combo');
-    if (select) {
-        select.value = langCode;
-        select.dispatchEvent(new Event('change'));
-        toggleLangMenu();
-    } else {
-        // Fallback: URL Hash method agar dropdown load na ho
-        window.location.hash = `#googtrans(en|${langCode})`;
-        location.reload();
-    }
-}
-
-// 3. Google Translate Initialization
-function googleTranslateElementInit() {
-    new google.translate.TranslateElement({
-        pageLanguage: 'en',
-        includedLanguages: 'en,hi,mr,bn,te,ta,gu,kn,pa,ml',
-        autoDisplay: false
-    }, 'google_translate_element');
-
-    // AUTO-HINDI LOGIC: Pehli baar visit par Hindi set karega
-    setTimeout(() => {
-        if (!document.cookie.includes('googtrans')) {
-            changeLang('hi');
-        }
-    }, 1500); // 1.5 second wait for Google to load
-}
-
-// Menu band karne ke liye agar user bahar click kare
-window.onclick = function(event) {
-    if (!event.target.matches('.lang-fab') && !event.target.closest('.lang-menu')) {
-        document.getElementById('langMenu').style.display = 'none';
-    }
-}
-
-// 1. Menu Toggle Logic
-const fab = document.getElementById('fab-btn');
-const menu = document.getElementById('langMenu');
-
-fab.addEventListener('click', () => {
-    menu.style.display = (menu.style.display === 'block') ? 'none' : 'block';
-});
-
-// 2. Google Translate Initialization
-function googleTranslateElementInit() {
-    new google.translate.TranslateElement({
-        pageLanguage: 'en',
-        includedLanguages: 'en,hi,mr,bn,te,ta,gu,kn,pa,ml',
-        autoDisplay: false
-    }, 'google_translate_element');
-}
-
-// 3. Robust Language Changer
-document.addEventListener('click', function(e) {
-    if (e.target.classList.contains('lang-opt')) {
-        const lang = e.target.getAttribute('data-lang');
-        const googleCombo = document.querySelector('.goog-te-combo');
-
-        if (googleCombo) {
-            googleCombo.value = lang;
-            googleCombo.dispatchEvent(new Event('change'));
-            menu.style.display = 'none';
-        } else {
-            // If Google fails, use Hash Fallback
-            window.location.hash = `#googtrans(en|${lang})`;
-            location.reload();
-        }
-    }
-});
-
-// 4. Auto-Hindi Logic (Fires only once)
-window.addEventListener('load', () => {
-    setTimeout(() => {
-        if (!document.cookie.includes('googtrans')) {
-            const googleCombo = document.querySelector('.goog-te-combo');
-            if (googleCombo) {
-                googleCombo.value = 'hi';
-                googleCombo.dispatchEvent(new Event('change'));
-            }
-        }
-    }, 2000); // Wait 2 seconds for Google to stabilize
-});
-
-
-/* Auto hindi */
-// --- 1. FORCE SET HINDI COOKIE (Pehle hi run ho jayega) ---
-function setHindiForce() {
+// 1. Force Hindi Logic (Har baar load aur back hone par chalega)
+function forceHindi() {
     document.cookie = "googtrans=/en/hi; path=/";
-    document.cookie = "googtrans=/en/hi; domain=" + document.domain + "; path=/";
+    document.cookie = "googtrans=/en/hi; domain=" + window.location.hostname + "; path=/";
+    
     if (!window.location.hash.includes('#googtrans(en|hi)')) {
         window.location.hash = '#googtrans(en|hi)';
     }
 }
-setHindiForce(); // Immediate execution
 
-// --- 2. GOOGLE TRANSLATE INIT ---
+// Back button fix
+window.addEventListener('pageshow', function(event) {
+    forceHindi();
+    if (event.persisted) {
+        window.location.reload(); 
+    }
+});
+
+// Immediate execution
+forceHindi();
+
+// 2. Google Translate Initialization (Sirf EK baar)
 function googleTranslateElementInit() {
     new google.translate.TranslateElement({
         pageLanguage: 'en',
-        includedLanguages: 'en,hi,mr,bn,te,ta,gu,kn,pa,ml',
+        includedLanguages: 'hi,en,mr', // Jo bhashayein chahiye wahi rakhein
         autoDisplay: false
     }, 'google_translate_element');
 
-    // Auto-Hindi Loop: Jab tak dropdown na mil jaye check karte raho
-    var autoTranslateInterval = setInterval(function() {
+    // Auto-select Hindi dropdown mein
+    var autoSelect = setInterval(function() {
         var combo = document.querySelector('.goog-te-combo');
         if (combo) {
             combo.value = 'hi';
             combo.dispatchEvent(new Event('change'));
-            clearInterval(autoTranslateInterval); // Milne ke baad stop kar do
+            clearInterval(autoSelect);
         }
-    }, 500); // Har aadhe second mein check karega
+    }, 500);
 }
 
-// --- 3. MENU & BUTTON CONTROLS ---
+// 3. FAB Menu & Language Switcher Logic
 document.addEventListener('DOMContentLoaded', () => {
-    const fab = document.getElementById('fab-btn');
+    const fab = document.getElementById('fab-btn'); // Ensure ID is correct
     const menu = document.getElementById('langMenu');
 
-    fab.addEventListener('click', (e) => {
-        e.stopPropagation();
-        menu.style.display = (menu.style.display === 'block') ? 'none' : 'block';
-    });
+    if (fab && menu) {
+        fab.addEventListener('click', (e) => {
+            e.stopPropagation();
+            menu.style.display = (menu.style.display === 'block') ? 'none' : 'block';
+        });
 
+        // Bahar click karne par menu band
+        document.addEventListener('click', () => {
+            menu.style.display = 'none';
+        });
+    }
+
+    // Buttons par click karne ka logic
     document.querySelectorAll('.lang-opt').forEach(btn => {
         btn.addEventListener('click', function() {
             const lang = this.getAttribute('data-lang');
@@ -419,41 +345,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 combo.dispatchEvent(new Event('change'));
             }
             window.location.hash = `#googtrans(en|${lang})`;
-            location.reload();
+            setTimeout(() => { location.reload(); }, 100);
         });
     });
 });
-
-// --- 1. FORCE HINDI ON EVERY LOAD & BACK BUTTON ---
-function applyHindi() {
-    // Cookie set karo
-    document.cookie = "googtrans=/en/hi; path=/";
-    document.cookie = "googtrans=/en/hi; domain=" + window.location.hostname + "; path=/";
-    
-    // Hash set karo agar nahi hai
-    if (!window.location.hash.includes('#googtrans(en|hi)')) {
-        window.location.hash = '#googtrans(en|hi)';
-    }
-}
-
-// Page load aur Back button dono par chalega
-window.addEventListener('pageshow', applyHindi);
-applyHindi(); // Immediate run
-
-function googleTranslateElementInit() {
-    new google.translate.TranslateElement({
-        pageLanguage: 'en',
-        includedLanguages: 'en,hi,mr,bn,te,ta,gu,kn,pa,ml',
-        autoDisplay: false
-    }, 'google_translate_element');
-
-    // Dropdown milte hi Hindi select karo
-    var checkCombo = setInterval(function() {
-        var combo = document.querySelector('.goog-te-combo');
-        if (combo) {
-            combo.value = 'hi';
-            combo.dispatchEvent(new Event('change'));
-            clearInterval(checkCombo);
-        }
-    }, 500);
-}
