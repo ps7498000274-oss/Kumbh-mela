@@ -349,3 +349,74 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 });
+
+
+
+
+
+
+
+
+
+
+/* ============================================================
+   LANGUAGE SELECTOR LOGIC (10 LANGUAGES)
+   ============================================================ */
+
+// 1. Menu Khulne aur Band hone ka Logic
+function toggleLangMenu() {
+    const menu = document.getElementById('langMenu');
+    if (menu) {
+        menu.style.display = (menu.style.display === 'block') ? 'none' : 'block';
+    }
+}
+
+// 2. Bhasha Badalane ka Logic (Google Translate ke saath)
+function changeLang(langCode) {
+    const select = document.querySelector('.goog-te-combo');
+    if (select) {
+        select.value = langCode;
+        select.dispatchEvent(new Event('change'));
+        toggleLangMenu(); // Change hone ke baad menu band karein
+    } else {
+        // Agar Google load nahi hua toh Hash method use karein
+        window.location.hash = `#googtrans(en|${langCode})`;
+        location.reload();
+    }
+}
+
+// 3. Google Translate Initialization
+function googleTranslateElementInit() {
+    new google.translate.TranslateElement({
+        pageLanguage: 'en',
+        includedLanguages: 'en,hi,mr,bn,te,ta,gu,kn,pa,ml',
+        autoDisplay: false
+    }, 'google_translate_element');
+
+    // Netlify Fix: Page load par check karein ki bhasha Hindi karni hai ya nahi
+    setTimeout(() => {
+        if (!document.cookie.includes('googtrans')) {
+            changeLang('hi'); // Default Hindi
+        }
+    }, 1000);
+}
+
+// 4. Bahar Click karne par Menu band karna
+window.onclick = function(event) {
+    const menu = document.getElementById('langMenu');
+    if (menu && !event.target.matches('.lang-fab') && !event.target.closest('.lang-menu') && !event.target.closest('.lang-fab')) {
+        menu.style.display = 'none';
+    }
+}
+
+// 5. Back Button Fix (Netlify Special)
+window.addEventListener('pageshow', function(event) {
+    if (event.persisted || (window.performance && window.performance.navigation.type === 2)) {
+        // Agar back aaye hain toh refresh karke bhasha maintain rakho
+        const cookie = document.cookie.split('; ').find(row => row.startsWith('googtrans='));
+        if (cookie) {
+            const lang = cookie.split('=')[1].split('/')[2];
+            window.location.hash = `#googtrans(en|${lang})`;
+        }
+    }
+});
