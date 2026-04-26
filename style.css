@@ -530,6 +530,30 @@
 
 .t-info { color: #444; font-size: 1rem; }
 
+/* Snan Card ke headings (1st, 2nd Amrit Snan) ka color theek karne ke liye */
+.snan-card h3 { 
+    margin-bottom: 10px; 
+    font-size: 1.3rem; 
+    color: #222 !important; /* Isse color Dark Black ho jayega */
+    font-weight: 700;
+}
+
+/* Snan Card ke paragraph (Shravan Amavasya, etc.) ka color theek karne ke liye */
+.snan-card p { 
+    color: #444 !important; /* Isse thoda dark grey ho jayega jo white par saaf dikhega */
+    font-size: 0.95rem; 
+    font-weight: 500;
+}
+
+/* Highlighted card (Orange border wala) ke liye special dark color */
+.main-highlight h3 {
+    color: #000 !important;
+}
+
+.main-highlight p {
+    color: #333 !important;
+}
+
 /* Mobile Adjustment */
 @media (max-width: 768px) {
     .main-highlight { transform: scale(1); }
@@ -690,6 +714,29 @@
 }
 
 .btn-download:hover { background: #219150; transform: scale(1.05); }
+
+/* Safety Section Title Fix */
+.safety-card-section .section-title {
+    color: #ff6b00 !important; /* Poori heading dark black rahegi */
+    text-transform: none;   /* Agar pehla word capital ho raha ho toh use normal karega */
+}
+
+.safety-card-section .section-title span {
+    color: #ff6b00 !important; /* Sirf 'Smart Safety ID' orange dikhega */
+    display: inline-block;
+}
+
+/* ID Card ke andar ki heading ka fix */
+.id-card-header h3 {
+    color: #ffffff !important; /* Card ke andar white hi rehna chahiye kyunki background orange hai */
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+/* ID Card ke andar ka Naam (Yatri Name) */
+#displayName {
+    color: #333 !important; /* Isse naam saaf dikhega card par */
+}
 
 /* Ghat Section */
 .ghats-section {
