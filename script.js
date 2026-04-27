@@ -236,20 +236,25 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 /* FAQ Section */
-document.querySelectorAll('.faq-question').forEach(button => {
-    button.addEventListener('click', () => {
-        const faqItem = button.parentElement;
+document.addEventListener('DOMContentLoaded', () => {
+    const faqButtons = document.querySelectorAll('.faq-question');
 
-        // Close other open items (Optional: remove this if you want multiple open)
-        document.querySelectorAll('.faq-item').forEach(item => {
-            if (item !== faqItem) item.classList.remove('active');
+    faqButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            const faqItem = button.parentElement;
+
+            // 1. Dusre saare items ko band karne ke liye (Accordion effect)
+            document.querySelectorAll('.faq-item').forEach(item => {
+                if (item !== faqItem) {
+                    item.classList.remove('active');
+                }
+            });
+
+            // 2. Click kiye gaye item ko kholne ya band karne ke liye
+            faqItem.classList.toggle('active');
         });
-
-        // Toggle current item
-        faqItem.classList.toggle('active');
     });
-});     
-
+});
 /*idea section */
 document.getElementById('suggestionForm').addEventListener('submit', function(e) {
     e.preventDefault();

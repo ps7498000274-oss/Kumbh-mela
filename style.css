@@ -717,7 +717,7 @@
 
 /* Safety Section Title Fix */
 .safety-card-section .section-title {
-    color: #ff6b00 !important; /* Poori heading dark black rahegi */
+    color: #ff6b00   !important; /* Poori heading dark black rahegi */
     text-transform: none;   /* Agar pehla word capital ho raha ho toh use normal karega */
 }
 
@@ -1384,6 +1384,27 @@
     border-top: 6px solid #dfe6e9;
 }
 
+/* Header ke niche waale text ko dark karne ke liye */
+.pg-header p {
+    color: #636e72 !important; /* Dark Grey color jo light background par dikhega */
+    font-size: 1.1rem;
+    margin-top: 10px;
+    font-weight: 500;
+    opacity: 1 !important;
+}
+
+/* Agar aapne koi global style likhi hai jo sab p tags ko white kar rahi hai, 
+toh use specific banayein ya upar waala code use karein */
+
+.pg-box ul li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    /* Isse arrows ka color wahi ho jayega jo card ke border ka hai */
+    color: inherit; 
+    font-weight: bold;
+}   
+
 .pg-box:hover {
     transform: translateY(-10px);
     box-shadow: 0 20px 40px rgba(0,0,0,0.1);
@@ -1433,6 +1454,10 @@
 
 .family { border-top-color: var(--family-purple); }
 .family .pg-icon { color: var(--family-purple); }
+
+/* Safe Green Color for Stay & Food Section */
+.safe { border-top-color: var(--safe-green); }
+.safe .pg-icon { color: var(--safe-green); }    
 
 .emergency { 
     background: var(--alert-red); 
@@ -1876,11 +1901,11 @@
 }
 
 /* FAQ Section */
-/* --- FAQ Ultra Pro Max Styles --- */
+/* FAQ Section Main */
 .faq-section {
     padding: 100px 20px;
     background: #0f0f0f;
-    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-family: 'Poppins', sans-serif;
 }
 
 .faq-container {
@@ -1907,6 +1932,15 @@
     margin: 10px 0;
 }
 
+.gold-text {
+    color: #d4af37;
+}
+
+.faq-header p {
+    color: #888;
+}
+
+/* Accordion Styles */
 .faq-accordion {
     display: flex;
     flex-direction: column;
@@ -1918,12 +1952,12 @@
     border-radius: 12px;
     border: 1px solid #333;
     overflow: hidden;
-    transition: 0.3s;
+    transition: 0.3s all ease;
 }
 
 .faq-question {
     width: 100%;
-    padding: 20px 25px;
+    padding: 22px 25px;
     background: none;
     border: none;
     display: flex;
@@ -1934,19 +1968,19 @@
     font-weight: 600;
     cursor: pointer;
     text-align: left;
-    transition: 0.3s;
 }
 
 .faq-question i {
     color: #d4af37;
-    transition: transform 0.4s;
+    transition: transform 0.4s ease;
 }
 
+/* Answer Styles */
 .faq-answer {
-    max-height: 0;
+    max-height: 0; /* Hidden by default */
     overflow: hidden;
-    transition: max-height 0.4s cubic-bezier(0, 1, 0, 1);
     background: #222;
+    transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .faq-answer p {
@@ -1956,19 +1990,20 @@
     margin: 0;
 }
 
-/* Active State Styles */
+/* --- Active State (JS handles this) --- */
 .faq-item.active {
     border-color: #d4af37;
     box-shadow: 0 5px 20px rgba(212, 175, 55, 0.1);
 }
 
 .faq-item.active .faq-answer {
-    max-height: 500px;
-    transition: max-height 0.4s cubic-bezier(1, 0, 1, 0);
+    max-height: 300px; /* Opens the answer */
+    border-top: 1px solid #333;
 }
 
 .faq-item.active .faq-question i {
-    transform: rotate(45deg); /* Plus becomes an X */
+    transform: rotate(45deg); /* Plus becomes X */
+    color: #ff6b00;
 }
 
 /* idea Section */
@@ -2092,6 +2127,25 @@
 .type-selector label:hover span {
     border-color: #555;
     color: #fff;
+}
+/* Purane .faq-answer ko isse badal dein */
+.faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: all 0.3s ease-in-out; /* Simple aur fast transition */
+    background: #1a1a1a; /* Background dark rakhein */
+}
+
+/* Jab active ho tab height badh jaye */
+.faq-item.active .faq-answer {
+    max-height: 200px; /* Answer ke hisaab se kaafi hai */
+    border-top: 1px solid #333;
+}
+
+/* Plus icon ko rotate karne ke liye */
+.faq-item.active .faq-question i {
+    transform: rotate(45deg);
+    color: #ff6b00;
 }
 
 /* Footer */
